@@ -2664,7 +2664,13 @@ pre {
         display: block; }
 
 .components {
-  padding: 40px; }
+  padding: 40px;
+  color: #828282; }
+  .components code {
+    color: #296ad4; }
+  .components .info, .components .boostui {
+    border-top: 1px dashed #e8e8e8;
+    padding: 20px 0; }
 
 /**
  * Syntax highlighting styles
