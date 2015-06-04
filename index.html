@@ -156,6 +156,85 @@
         </div>
     </div>
 
+    <div class="info-section features clearfix">
+        <h1 class="title">
+            核心功能
+        </h1>
+
+        <div class="section">
+            <div class="item float">
+                <div class="title">
+                    <i class="fa fa-compass"></i>
+                    注册机制
+                </div>
+
+                <p>
+                    提供新Element类的注册接口
+                    注册后就拥有Element的基础接口和生命周期
+                </p>
+            </div>
+            <div class="item float">
+                <div class="title">
+                    <i class="fa fa-retweet"></i>
+                    完整生命周期
+                </div>
+
+                <p>
+                    和WebComponents行为和名称一致的生命周期，created、attached、attributeChanged、dettached
+                </p>
+            </div>
+
+            <div class="item float">
+                <div class="title">
+                    <i class="fa fa-code"></i>
+                    声明式使用
+                </div>
+                <p>
+                    原生tag一样使用新Element；声明式的设置属性
+                    <br/>
+                    <code>
+                        &lt;r-slider aaa="test" &gt; &lt;/r-slider&gt;
+                    </code>
+                </p>
+            </div>
+            <div class="item float">
+                <div class="title">
+                    <i class="fa fa-folder-toggle-up"></i>
+                    Element内外隔离
+                </div>
+                <p>
+                    统一接口形式和生命周期事件，隔离内外功能耦合
+                </p>
+                <p>
+                    content标签隔离内外嵌套
+                </p>
+                <p>
+                    部分的css shadow，隔离内部对外部的css污染
+                </p>
+            </div>
+
+            <div class="item float">
+                <div class="title">
+                    <i class="fa fa-hand-o-right"></i>
+                    灵活的模版语法
+                </div>
+                <p>
+                    {}隔离模版语法和外部的html，模版语法采用原生的js灵活低成本，js内以JSX语法嵌套html
+                </p>
+            </div>
+
+            <div class="item float">
+                <div class="title">
+                    <i class="fa fa-flash"></i>
+                    事件、数据和DOM
+                </div>
+                <p>
+                    Element定义内部共享作用域，方便快速的事件绑定和变量使用；提供ref迅速获取DOM和Element实例，省去复杂代码
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div class="info-section steps clearfix">
         <h1 class="title">
             四步Run项目
