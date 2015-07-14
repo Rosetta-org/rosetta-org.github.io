@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Rosetta——Web Components" />
+    <meta name="keywords" content="百度直达号团队,Rosetta,百度Rosetta,百度前端,WebComponents实践,组件化开发" />
+    <link rel="shortcut icon" href="/rosetta/static/images/favicon.ico"/>
+    <title>Rosetta :  入门使用文档</title>
+    <meta name="description" content="Rosetta 面向WebComponents的组件开发方案">
+    <meta name="author" content="Rosetta">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/rosetta/static/css/normalize_5f79cb1.css" rel="stylesheet">
+
+
+    <!-- Custom styles -->
+    <link href="/rosetta/static/assets/css/index_a8fe025.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/rosetta/static/css/page_6b9d821.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/rosetta/static/css/github_5dbe7fc.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/rosetta/static/css/perfect-scrollbar.min_0321076.css" rel="stylesheet">
+    <link href="/rosetta/static/css/font-awesome.min_3724e0c.css" rel="stylesheet" type="text/css" media="all">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/rosetta/static/js/html5shiv_3855464.js"></script>
+    <script src="/rosetta/static/js/respond.min_579a7a6.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <script src="/rosetta/static/js/jquery.min_8fa4892.js"></script>
+    <script src="/rosetta/static/js/scrollspy_f211cc4.js"></script>
+</head>
+
+<body>
+<div class="header-wrap">
+    <header>
+        <div class="logo-wrap">
+            <a href="/rosetta/index.html" class="logo">
+                <img src="/rosetta/logo.png">
+                <i class="fa fa-rocket"></i>
+            </a>
+            <a class="fa toggle"></a>
+        </div>
+        <nav>
+            <div class="nav-left">
+                <a href="/rosetta/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
+                <a href="/rosetta/tools/intro.html" class="nav-link ">工具</a>
+                <a href="/rosetta/elements/intro.html" class="nav-link ">组件</a>
+                <a target="_blank" href="https://github.com/Rosetta-org/rosetta-demo" class="nav-link">Demo</a>
+                <a href="/rosetta/docs/api/api.html" class="nav-link ">API</a>
+                <a target="_blank" href="" class="nav-link">线上实例</a>
+            </div>
+            <div class="nav-right">
+                <!-- <a href="#" class="nav-link lang">中文</a> -->
+                <!-- <a href="#" class="nav-link lang">English</a> -->
+                <a href="https://github.com/jiexuangao/rosetta" class="nav-link"><i class="fa fa-github"></i></a>
+            </div>
+        </nav>
+    </header>
+</div>
+
+<div id="main" class="fix-sidebar">
+    <div class="sidebar">
+    <ul>
+<li><a href="/rosetta/docs/beginning/intro.html">介绍</a><ul>
+<li><a href="/rosetta/docs/beginning/install.html">安装依赖</a></li>
+<li><a href="/rosetta/docs/beginning/getRosetta.html">获取Rosetta</a></li>
+</ul>
+</li>
+<li>快速开始<ul>
+<li><a href="/rosetta/docs/beginning/helloworld.html">手把手教你写一个helloworld</a></li>
+<li><a href="/rosetta/docs/beginning/core.html">一分钟功能概览</a></li>
+<li><a href="/rosetta/docs/beginning/elements.html">组件生态</a></li>
+<li><a href="/rosetta/docs/beginning/scaffold.html">脚手架</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="/rosetta/docs/lv1.html">入门使用</a><ul>
+<li><a href="/rosetta/docs/lv1.html#%E5%AE%9A%E4%B9%89element">定义element</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E5%A2%9E%E5%8A%A0html%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%B1%9E%E6%80%A7">增加html、变量、属性</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F">设置样式</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E6%B3%A8%E5%86%8Celement%E5%AE%9A%E4%B9%89%E9%80%BB%E8%BE%91">注册element定义逻辑</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6">绑定事件</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">生命周期</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E5%A3%B0%E6%98%8E%E4%BE%9D%E8%B5%96">声明依赖</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7">更新element的属性</a></li>
+<li><a href="/rosetta/docs/lv1.html#ref%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E5%86%85%E9%83%A8DOM">refs快速访问内部DOM</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8">定义容器</a></li>
+<li><a href="/rosetta/docs/lv1.html#ready%E6%8E%A5%E5%8F%A3">ready接口</a></li>
+<li><a href="/rosetta/docs/lv1.html#ref%E5%BF%AB%E9%80%9Felement%E5%AE%9E%E4%BE%8B">ref接口快速element实例</a></li>
+<li><a href="/rosetta/docs/lv1.html#init%E6%8E%A5%E5%8F%A3">init接口</a></li>
+<li><a href="/rosetta/docs/lv1.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84Element%E9%A2%84%E5%A4%84%E7%90%86">基于FIS3的预处理</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="/rosetta/docs/lv2.html">高级使用</a><ul>
+<li><a href="/rosetta/docs/lv2.html#%E5%8A%A8%E6%80%81%E5%AE%9E%E4%BE%8B%E5%8C%96">动态实例化element</a></li>
+<li><a href="/rosetta/docs/lv2.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%B3%A8%E5%86%8Celement">异步加载注册element</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="/rosetta/docs/lv3.html">项目解决方案</a><ul>
+<li><a href="/rosetta/docs/lv3.html#%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91">组件化开发</a></li>
+<li><a href="/rosetta/docs/lv3.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84%E6%9E%84%E5%BB%BA">基于FIS3的项目构建</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>API接口文档</p>
+<ul>
+<li><a href="/rosetta/docs/api/api.html#Element%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE">Element的动态数据</a></li>
+<li><a href="/rosetta/docs/api/api.html#%E6%A8%A1%E7%89%88%E8%AF%AD%E6%B3%95">模版语法</a></li>
+<li><a href="/rosetta/docs/api/api.html#%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BE%8B%E9%80%BB%E8%BE%91">定义实例逻辑</a></li>
+<li><a href="/rosetta/docs/api/api.html#Element%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Element生命周期</a></li>
+<li><a href="/rosetta/docs/api/api.html#%E5%AE%9A%E4%BD%8DDOM">定位DOM</a></li>
+<li><a href="/rosetta/docs/api/api.html#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A">事件绑定</a></li>
+<li><a href="/rosetta/docs/api/api.html#%E5%AE%9E%E4%BE%8B%E5%8C%96Element">动态实例化Element</a></li>
+<li><a href="/rosetta/docs/api/api.html#%E6%B8%B2%E6%9F%93Element">动态渲染Element</a></li>
+</ul>
+</li>
+<li><p>工作原理</p>
+<ul>
+<li><a href="/rosetta/docs/beginning/runtime.html">Runtime</a></li>
+<li><a href="/rosetta/docs/beginning/compile.html">Compile</a></li>
+</ul>
+</li>
+<li><p><a href="/rosetta/docs/usage.html">Rosetta1.0整合三方</a></p>
+</li>
+</ul>
+
+    <div class="bottom-shadow"></div>
+</div>
+
+    <div class="content api with-sidebar">
+        <a name="%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3" class="title-anchor"></a><h3 class="" id="入门使用文档">入门使用文档</h3><a name="%E5%AE%9A%E4%B9%89element" class="title-anchor"></a><h4 class="" >定义element</h4><p>定义一个element，需要定义三个部分</p>
+<ul>
+<li>html</li>
+<li>css</li>
+<li>js</li>
+</ul>
+<blockquote>
+<p>Step one</p>
+</blockquote>
+<p>这三个部分用标签<code>&lt;element&gt;&lt;/element&gt;</code>包裹</p>
+<ul>
+<li>此标签必须的属性为name，作为此element的custom element名称</li>
+<li>name 必须符合Web Components的要求包含&#39;-&#39;</li>
+</ul>
+<p>定义一个名为&#39;r-slider&#39;的element的示例：</p>
+<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>Step two</p>
+</blockquote>
+<a name="%E5%A2%9E%E5%8A%A0html%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%B1%9E%E6%80%A7" class="title-anchor"></a><h4 class="" >增加html、变量、属性</h4><p>以<code>&lt;template&gt;&lt;/template&gt;</code>包裹html的内容</p>
+<pre><code class="hljs lang-html">&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+&lt;/element&gt;
+</code></pre>
+<ul>
+<li>为html增加DOM结构</li>
+</ul>
+<pre><code class="hljs lang-html">&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span>&gt;
+            我是<span class="hljs-type">DOM</span>结构示例
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+&lt;/element&gt;
+</code></pre>
+<ul>
+<li><p>html中使用数据</p>
+<ul>
+<li><p>如果element有初始化属性为text，可通过<code>{attrs.text}</code>引用，同时可以通过实例的update()函数实现数据更新和UI渲染。attrs为内置变量，在js部分会详细说明</p>
+</li>
+<li><p>如果element的register函数中定义了变量title，可以通过<code>{title}</code>直接访问。具体变量的定义和register函数在js部分会详细说明</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>html中使用属性</li>
+</ul>
+<pre><code>&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span>&gt;
+            我是<span class="hljs-type">DOM</span>结构示例
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+        &lt;span&gt;{attrs.text}&lt;/span&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+&lt;/element&gt;
+</code></pre><ul>
+<li>html中使用变量</li>
+</ul>
+<pre><code>&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span>&gt;
+            我是<span class="hljs-type">DOM</span>结构示例
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+        &lt;span&gt;{attrs.text}&lt;/span&gt;
+        &lt;span&gt;{title}&lt;/span&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+    &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
+        <span class="hljs-type">Rosetta</span>.register('r-slider', function(tag) {
+            <span class="hljs-keyword">var</span> title = '我是一个作用域内的变量'
+        })
+    &lt;/script&gt;
+&lt;/element&gt;
+</code></pre><blockquote>
+<p>Step three</p>
+</blockquote>
+<a name="%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F" class="title-anchor"></a><h4 class="" >设置样式</h4><ul>
+<li>定义element时，可以为其定义样式，样式通过内联形式定义</li>
+<li>支持<code>:host</code>选择器，选择对象是element实例的根节点，以实现内部样式隔离于element外部</li>
+</ul>
+<pre><code class="hljs lang-html">&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;style&gt;
+        :host <span class="hljs-keyword">div</span> {
+            color: red;
+        }
+    &lt;/style&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span>&gt;
+            我是<span class="hljs-type">DOM</span>结构示例
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+&lt;/element&gt;
+</code></pre>
+<blockquote>
+<p>Step four</p>
+</blockquote>
+<a name="%E6%B3%A8%E5%86%8Celement%E5%AE%9A%E4%B9%89%E9%80%BB%E8%BE%91" class="title-anchor"></a><h4 class="" >注册element定义逻辑</h4><ul>
+<li>js部分用<code>&lt;script&gt;&lt;/script&gt;</code>包裹</li>
+<li>通过Rosetta.register接口注册element</li>
+<li>Rosetta.register第一个参数为注册的element的名字，第二个参数为自定义渲染函数，在created之前执行</li>
+<li>第一个参数element的名称需要和<code>&lt;element&gt;&lt;/element&gt;</code>上定义的name保持一致</li>
+<li>第二个参数自定义渲染函数的arguments为element实例用&#39;tag&#39;表示</li>
+<li>第二个参数自定义渲染函数和html引用的属性、变量共享作用域</li>
+</ul>
+<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我是DOM结构示例
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>
+            {title}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
+            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+<a name="%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6" class="title-anchor"></a><h4 class="" >绑定事件</h4><p>Rosetta为element内部DOM提供事件绑定方式，以&#39;on&#39;加首字母大写的事件名为attribute名，以<code>{xxx}</code>定义callback，如下示例：</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我是DOM结构示例
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>
+            {title}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicked}</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
+            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
+            <span class="hljs-keyword">var</span> clicked = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'clicked'</span>);
+            };
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre><a name="%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" class="title-anchor"></a><h4 class="" >生命周期</h4><p>Rosetta为custom elements实现了和标准一致的生命周期：</p>
+<ul>
+<li>created：组件创建</li>
+<li>attached：组件渲染到document里</li>
+<li>dettached：组件从document移除</li>
+<li>attributeschanged：属性更新</li>
+</ul>
+<p>element定义的时候可以绑定生命周期的事件</p>
+<ul>
+<li>onCreated</li>
+<li>onAttached</li>
+<li>onDettached</li>
+<li>onAttributesChanged</li>
+</ul>
+<p>提供定义生命周期callback的两种形式</p>
+<ul>
+<li>可以通过设置DOM的attribute的形式声明对于生命周期的绑定，类似于事件绑定，区别在于以attributes声明的时候生命周期只可以生命在<code>&lt;element&gt;&lt;/element&gt;</code>的属性上</li>
+<li>在register的函数中定义</li>
+</ul>
+<p>示例如下，分别用两种方式声明<code>attached</code>和<code>created</code>：</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span> <span class="hljs-attribute">onAttached</span>=<span class="hljs-value">{attached}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我是DOM结构示例
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>
+            {title}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicked}</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
+            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
+            <span class="hljs-keyword">var</span> clicked = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'clicked'</span>);
+            };
+
+            <span class="hljs-keyword">var</span> onAttached = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'attached'</span>);
+            };
+
+            tag.on(<span class="hljs-string">'created'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'created'</span>);
+            });
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre><a name="%E5%A3%B0%E6%98%8E%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明依赖</h4><p>Rosetta在使用custom element时，使用HTML Import声明依赖，如下示例：</p>
+<pre><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-slider.html"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">r-slider</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre><a name="%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7" class="title-anchor"></a><h4 class="" >更新element的属性</h4><ul>
+<li>在custom element使用的时候用attributes设置属性初始值</li>
+<li>通过element实例的update函数接口更新属性值，Rosetta自动完成UI更新</li>
+<li>内部html中通过<code>{attrs.xxx}</code>来引用对于<code>xxx</code>属性的</li>
+</ul>
+<p>定义element，绑定事件、实现属性更新逻辑</p>
+<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我是DOM结构示例
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>
+            {title}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicked}</span>&gt;</span>
+            {attrs.text}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
+            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
+
+            <span class="hljs-keyword">var</span> clicked = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                tag.update({
+                    text: <span class="hljs-string">'clicked!'</span>
+                });
+            };
+
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+<p>使用element，在使用处用HTML Import声明依赖</p>
+<pre><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-slider.html"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">r-slider</span> <span class="hljs-attribute">text</span>=<span class="hljs-value">"我是一个属性测试"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre><a name="refs%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E5%86%85%E9%83%A8DOM" class="title-anchor"></a><h4 class="" >refs快速访问内部DOM</h4><p>通过tag的refs属性快速访问DOM，作为对dom查询接口的补充，返回值为DOM对象</p>
+<p>示例如下：</p>
+<pre><code class="hljs lang-html">&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;style&gt;
+        :host <span class="hljs-keyword">div</span> {
+            color: red;
+        }
+    &lt;/style&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span> <span class="hljs-keyword">ref</span>='test'&gt;
+            我是<span class="hljs-keyword">ref</span>的<span class="hljs-type">DOM</span>选择示例
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+    &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
+        <span class="hljs-type">Rosetta</span>.register('r-slider', function(tag) {
+            tag.on('attached', function() {
+                <span class="hljs-keyword">var</span> test = tag.refs['test'];
+                test.innerHTML += '更新啦';
+            });
+        });
+    &lt;/script&gt;
+&lt;/element&gt;
+</code></pre>
+<a name="%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8" class="title-anchor"></a><h4 class="" >定义容器</h4><ul>
+<li>在custom element内部通过<code>&lt;content&gt;&lt;/content&gt;</code>定义容器</li>
+<li>为<code>&lt;content&gt;&lt;/content&gt;</code>加上属性select设置对于element实例的子元素的过滤</li>
+<li>比如一个<code>select</code>为&#39;.aaa&#39;的content，表示只有具有类名为&#39;aaa&#39;的子元素可以放入容器中，其他的子元素会被丢弃忽略</li>
+</ul>
+<p>示例如下：</p>
+<p>定义content</p>
+<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">content</span> <span class="hljs-attribute">select</span>=<span class="hljs-value">'.aaa'</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">content</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
+            <span class="hljs-comment">//<span class="hljs-doctag"><span class="hljs-keyword">xxx</span></span>xx</span>
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+<p>使用element，传入子元素</p>
+<pre><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-slider.html"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">r-slider</span> <span class="hljs-attribute">text</span>=<span class="hljs-value">"我是一个属性测试"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"aaa"</span>&gt;</span>
+            我会被选择加入容器
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我会被忽略
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre><a name="ready%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >ready接口</h4><ul>
+<li>在当前页面所有的custom element实例化完毕的时候会执行Rosetta ready状态的callback</li>
+<li>Rosetta.ready接口接受function为参数作为callback</li>
+</ul>
+<pre><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-slider.html"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">r-slider</span> <span class="hljs-attribute">text</span>=<span class="hljs-value">"我是一个属性测试"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"aaa"</span>&gt;</span>
+            我会被选择加入容器
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我会被忽略
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="smali">
+       <span class="hljs-function"> Rosetta.ready(</span>function(<span class="hljs-function">)</span> {
+            //you can access element<span class="hljs-instruction"> instance </span>and do something here
+        }<span class="hljs-function">)</span>;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre><a name="ref%E6%8E%A5%E5%8F%A3%E5%BF%AB%E9%80%9Felement%E5%AE%9E%E4%BE%8B" class="title-anchor"></a><h4 class="" >ref接口快速element实例</h4><ul>
+<li>以声明的方式使用element的时候，可以添加ref这个attribute</li>
+<li>通过Rosetta.ref(&#39;refName&#39;)快速获取element实例对象</li>
+</ul>
+<pre><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-slider.html"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">r-slider</span> <span class="hljs-attribute">text</span>=<span class="hljs-value">"我是一个属性测试"</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"lalala"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"aaa"</span>&gt;</span>
+            我会被选择加入容器
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            我会被忽略
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="nimrod">
+        <span class="hljs-type">Rosetta</span>.ready(function() {
+            //you can access element instance <span class="hljs-keyword">and</span> <span class="hljs-keyword">do</span> something here
+
+            <span class="hljs-keyword">var</span> slider = <span class="hljs-type">Rosetta</span>.<span class="hljs-keyword">ref</span>('lalala');
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre><a name="init%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >init接口</h4><p>Rosetta提供init接口，内部调用，进行页面自定义tag的解析</p>
+<pre><code>    Rosetta.<span class="hljs-function"><span class="hljs-title">init</span><span class="hljs-params">()</span></span>
+</code></pre><a name="%E5%9F%BA%E4%BA%8EFIS3%E7%9A%84%E9%A2%84%E5%A4%84%E7%90%86" class="title-anchor"></a><h4 class="" >基于FIS3的预处理</h4><ul>
+<li>Rosetta提供基于FIS3的解析插件进行element的定义html文件解析和编译</li>
+<li>Rosetta提供基于FIS3的打包插件，对于项目依赖的element进行按element对页面依赖关系进行插入，或者按页面级的allInOne打包后插入</li>
+<li>构建配置在fis-conf.js中配置</li>
+</ul>
+<p>示例配置如下：</p>
+<pre><code>fis
+    <span class="hljs-built_in">.</span><span class="hljs-keyword">match</span>(<span class="hljs-string">'*.{html,tpl}'</span>, {
+        parser: fis<span class="hljs-built_in">.</span>plugin(<span class="hljs-string">'rosetta'</span>, {
+            compileUsage: <span class="hljs-literal">false</span>
+        })
+    })
+
+    <span class="hljs-built_in">.</span><span class="hljs-keyword">match</span>(<span class="hljs-string">'/elements/r-*.html'</span>, {
+        rExt: <span class="hljs-string">'.js'</span>
+    })
+    <span class="hljs-built_in">.</span><span class="hljs-keyword">match</span>(<span class="hljs-string">'/elements/*.*'</span>, {
+        release: <span class="hljs-string">'/static/$0'</span>
+    })
+    <span class="hljs-built_in">.</span><span class="hljs-keyword">match</span>(<span class="hljs-string">'::packager'</span>, {
+        postpackager: fis<span class="hljs-built_in">.</span>plugin(<span class="hljs-string">'rosetta'</span>, {
+            allInOne: <span class="hljs-literal">true</span>
+        })
+    });
+</code></pre><p>详细配置参考<a href="/rosetta/docs/beginning/scaffold.html">脚手架</a>中的具体项目示例</p>
+<blockquote class="warning"><p>文档内容有误，可提 PR，文档地址: <i class="fa fa-github"></i><a href="https://github.com/jiexuangao/rosetta/tree/master/doc/docs/lv1.md">/doc/docs/lv1.md</a></p></blockquote>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4206d67a3ea708c0d2a9354c8d88525f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+<!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/rosetta/static/js/perfect-scrollbar.min_5c71541.js"></script>
+<script type="text/javascript">
+    (function(){
+        var scrollBarEnabled = false;
+
+        function isIE( version, comparison ){
+            var $div = $('<div style="display:none;"/>').appendTo($('body'));
+            $div.html('<!--[if '+(comparison||'')+' IE '+(version||'')+']><a>&nbsp;</a><![endif]-->');
+            var ieTest = $div.find('a').length;
+            $div.remove();
+            return ieTest;
+        }
+
+        function updateScrollBar(){
+            function enableScrollBar(){
+                if (scrollBarEnabled)
+                    return;
+                scrollBarEnabled = true;
+                $(".sidebar").perfectScrollbar({
+                    wheelSpeed: 10,
+                    wheelPropagation: false
+                });
+            }
+
+            function disableScrollBar(){
+                if (!scrollBarEnabled)
+                    return;
+                scrollBarEnabled = false;
+                $(".sidebar").perfectScrollbar('destroy');
+            }
+
+            if ($(window).width()>760 && $(".sidebar").height() < $(".sidebar ul").height()){
+                enableScrollBar();
+            }else{
+                disableScrollBar();
+            }
+        }
+
+        //设置链接当前样式
+        function setActive(){
+            var href= window.location.href;
+            $(".sidebar li a").each(function(){
+                var link = $(this).attr("href");
+                if(String(href).indexOf(link) > -1){
+                    $(this).addClass("active");
+                }
+            })
+        }
+
+        //生成左边导航用于在移动端查看使用
+        function buildSideNav(){
+            $("nav .nav-left").clone().attr("class","main-nav").prependTo($(".sidebar"));
+
+            $(".header-wrap .toggle").addClass("fa-list").on("click",function(){
+                $(".sidebar").toggleClass("open");
+                return false;
+            })
+
+            $("html").on("click",function(e){
+                console.log(e.target);
+                $(".sidebar").removeClass("open");
+            })
+
+            $(".sidebar").bind("click",function(e){
+                e && e.stopPropagation();
+            })
+        }
+
+        //hash平滑滚动，a链接添加active
+        $('.sidebar li a').click(function(){
+            $('.sidebar li a').removeClass("active");
+            $(this).addClass("active");
+            $(".sidebar").removeClass("open");
+        });
+
+        setActive();
+        buildSideNav();
+
+
+        if (!isIE(8, 'lte')){
+            $(".sidebar").addClass('scrollbar');
+            updateScrollBar();
+            $(window).resize(updateScrollBar);
+        }
+
+
+
+        // //判断滚动方向，动态隐藏导航条
+        // var lastScrollTop = 0;
+        // $(window).scroll(function(event){
+        //     if($(window).width()>720){
+        //         var st = $(this).scrollTop();
+        //         if(st > lastScrollTop){
+        //             $("body").addClass("hide-header");
+        //         }else{
+        //             $("body").removeClass("hide-header");
+        //         }
+        //     }else{
+        //         $("body").removeClass("hide-header");
+        //     }
+        //     lastScrollTop = st;
+        // });
+    }());
+</script>
+<script type="text/javascript">
+// var _hmt = _hmt || [];
+// (function() {
+//   var hm = document.createElement("script");
+//   hm.src = "//hm.baidu.com/hm.js?58781c9e97848ee4bfe5b036058c99e7";
+//   var s = document.getElementsByTagName("script")[0];
+//   s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+</body>
+</html>
