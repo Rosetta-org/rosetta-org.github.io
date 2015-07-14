@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Rosetta——Web Components" />
     <meta name="keywords" content="百度直达号团队,Rosetta,百度Rosetta,百度前端,WebComponents实践,组件化开发" />
-    <link rel="shortcut icon" href="/rosetta/static/images/favicon.ico"/>
+    <link rel="shortcut icon" href="/static/images/favicon.ico"/>
     <title>Rosetta :  高级使用</title>
     <meta name="description" content="Rosetta 面向WebComponents的组件开发方案">
     <meta name="author" content="Rosetta">
@@ -13,20 +13,20 @@
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/rosetta/static/css/normalize_5f79cb1.css" rel="stylesheet">
+    <link href="/static/css/normalize_5f79cb1.css" rel="stylesheet">
 
 
     <!-- Custom styles -->
-    <link href="/rosetta/static/assets/css/index_a8fe025.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/rosetta/static/css/page_6b9d821.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/rosetta/static/css/github_5dbe7fc.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/rosetta/static/css/perfect-scrollbar.min_0321076.css" rel="stylesheet">
-    <link href="/rosetta/static/css/font-awesome.min_3724e0c.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/assets/css/index_a8fe025.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/page_6b9d821.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/github_5dbe7fc.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/perfect-scrollbar.min_0321076.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min_e32923f.css" rel="stylesheet" type="text/css" media="all">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="/rosetta/static/js/html5shiv_3855464.js"></script>
-    <script src="/rosetta/static/js/respond.min_579a7a6.js"></script>
+    <script src="/static/js/html5shiv_3855464.js"></script>
+    <script src="/static/js/respond.min_579a7a6.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->
@@ -37,27 +37,27 @@
       <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     -->
 
-    <script src="/rosetta/static/js/jquery.min_8fa4892.js"></script>
-    <script src="/rosetta/static/js/scrollspy_f211cc4.js"></script>
+    <script src="/static/js/jquery.min_8fa4892.js"></script>
+    <script src="/static/js/scrollspy_f211cc4.js"></script>
 </head>
 
 <body>
 <div class="header-wrap">
     <header>
         <div class="logo-wrap">
-            <a href="/rosetta/index.html" class="logo">
-                <img src="/rosetta/logo.png">
+            <a href="/index.html" class="logo">
+                <img src="/logo.png">
                 <i class="fa fa-rocket"></i>
             </a>
             <a class="fa toggle"></a>
         </div>
         <nav>
             <div class="nav-left">
-                <a href="/rosetta/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
-                <a href="/rosetta/tools/intro.html" class="nav-link ">工具</a>
-                <a href="/rosetta/elements/intro.html" class="nav-link ">组件</a>
+                <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
+                <a href="/tools/intro.html" class="nav-link ">工具</a>
+                <a href="/elements/intro.html" class="nav-link ">组件</a>
                 <a target="_blank" href="https://github.com/Rosetta-org/rosetta-demo" class="nav-link">Demo</a>
-                <a href="/rosetta/docs/api/api.html" class="nav-link ">API</a>
+                <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a target="_blank" href="" class="nav-link">线上实例</a>
             </div>
             <div class="nav-right">
@@ -72,72 +72,72 @@
 <div id="main" class="fix-sidebar">
     <div class="sidebar">
     <ul>
-<li><a href="/rosetta/docs/beginning/intro.html">介绍</a><ul>
-<li><a href="/rosetta/docs/beginning/install.html">安装依赖</a></li>
-<li><a href="/rosetta/docs/beginning/getRosetta.html">获取Rosetta</a></li>
+<li><a href="/docs/beginning/intro.html">介绍</a><ul>
+<li><a href="/docs/beginning/install.html">安装依赖</a></li>
+<li><a href="/docs/beginning/getRosetta.html">获取Rosetta</a></li>
 </ul>
 </li>
 <li>快速开始<ul>
-<li><a href="/rosetta/docs/beginning/helloworld.html">手把手教你写一个helloworld</a></li>
-<li><a href="/rosetta/docs/beginning/core.html">一分钟功能概览</a></li>
-<li><a href="/rosetta/docs/beginning/elements.html">组件生态</a></li>
-<li><a href="/rosetta/docs/beginning/scaffold.html">脚手架</a></li>
+<li><a href="/docs/beginning/helloworld.html">手把手教你写一个helloworld</a></li>
+<li><a href="/docs/beginning/core.html">一分钟功能概览</a></li>
+<li><a href="/docs/beginning/elements.html">组件生态</a></li>
+<li><a href="/docs/beginning/scaffold.html">脚手架</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="/rosetta/docs/lv1.html">入门使用</a><ul>
-<li><a href="/rosetta/docs/lv1.html#%E5%AE%9A%E4%B9%89element">定义element</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E5%A2%9E%E5%8A%A0html%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%B1%9E%E6%80%A7">增加html、变量、属性</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F">设置样式</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E6%B3%A8%E5%86%8Celement%E5%AE%9A%E4%B9%89%E9%80%BB%E8%BE%91">注册element定义逻辑</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6">绑定事件</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">生命周期</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E5%A3%B0%E6%98%8E%E4%BE%9D%E8%B5%96">声明依赖</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7">更新element的属性</a></li>
-<li><a href="/rosetta/docs/lv1.html#ref%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E5%86%85%E9%83%A8DOM">refs快速访问内部DOM</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8">定义容器</a></li>
-<li><a href="/rosetta/docs/lv1.html#ready%E6%8E%A5%E5%8F%A3">ready接口</a></li>
-<li><a href="/rosetta/docs/lv1.html#ref%E5%BF%AB%E9%80%9Felement%E5%AE%9E%E4%BE%8B">ref接口快速element实例</a></li>
-<li><a href="/rosetta/docs/lv1.html#init%E6%8E%A5%E5%8F%A3">init接口</a></li>
-<li><a href="/rosetta/docs/lv1.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84Element%E9%A2%84%E5%A4%84%E7%90%86">基于FIS3的预处理</a></li>
+<li><a href="/docs/lv1.html">入门使用</a><ul>
+<li><a href="/docs/lv1.html#%E5%AE%9A%E4%B9%89element">定义element</a></li>
+<li><a href="/docs/lv1.html#%E5%A2%9E%E5%8A%A0html%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%B1%9E%E6%80%A7">增加html、变量、属性</a></li>
+<li><a href="/docs/lv1.html#%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F">设置样式</a></li>
+<li><a href="/docs/lv1.html#%E6%B3%A8%E5%86%8Celement%E5%AE%9A%E4%B9%89%E9%80%BB%E8%BE%91">注册element定义逻辑</a></li>
+<li><a href="/docs/lv1.html#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6">绑定事件</a></li>
+<li><a href="/docs/lv1.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">生命周期</a></li>
+<li><a href="/docs/lv1.html#%E5%A3%B0%E6%98%8E%E4%BE%9D%E8%B5%96">声明依赖</a></li>
+<li><a href="/docs/lv1.html#%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7">更新element的属性</a></li>
+<li><a href="/docs/lv1.html#ref%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E5%86%85%E9%83%A8DOM">refs快速访问内部DOM</a></li>
+<li><a href="/docs/lv1.html#%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8">定义容器</a></li>
+<li><a href="/docs/lv1.html#ready%E6%8E%A5%E5%8F%A3">ready接口</a></li>
+<li><a href="/docs/lv1.html#ref%E5%BF%AB%E9%80%9Felement%E5%AE%9E%E4%BE%8B">ref接口快速element实例</a></li>
+<li><a href="/docs/lv1.html#init%E6%8E%A5%E5%8F%A3">init接口</a></li>
+<li><a href="/docs/lv1.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84Element%E9%A2%84%E5%A4%84%E7%90%86">基于FIS3的预处理</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="/rosetta/docs/lv2.html">高级使用</a><ul>
-<li><a href="/rosetta/docs/lv2.html#%E5%8A%A8%E6%80%81%E5%AE%9E%E4%BE%8B%E5%8C%96">动态实例化element</a></li>
-<li><a href="/rosetta/docs/lv2.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%B3%A8%E5%86%8Celement">异步加载注册element</a></li>
+<li><a href="/docs/lv2.html">高级使用</a><ul>
+<li><a href="/docs/lv2.html#%E5%8A%A8%E6%80%81%E5%AE%9E%E4%BE%8B%E5%8C%96">动态实例化element</a></li>
+<li><a href="/docs/lv2.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%B3%A8%E5%86%8Celement">异步加载注册element</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="/rosetta/docs/lv3.html">项目解决方案</a><ul>
-<li><a href="/rosetta/docs/lv3.html#%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91">组件化开发</a></li>
-<li><a href="/rosetta/docs/lv3.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84%E6%9E%84%E5%BB%BA">基于FIS3的项目构建</a></li>
+<li><a href="/docs/lv3.html">项目解决方案</a><ul>
+<li><a href="/docs/lv3.html#%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91">组件化开发</a></li>
+<li><a href="/docs/lv3.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84%E6%9E%84%E5%BB%BA">基于FIS3的项目构建</a></li>
 </ul>
 </li>
 </ul>
 <ul>
 <li><p>API接口文档</p>
 <ul>
-<li><a href="/rosetta/docs/api/api.html#Element%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE">Element的动态数据</a></li>
-<li><a href="/rosetta/docs/api/api.html#%E6%A8%A1%E7%89%88%E8%AF%AD%E6%B3%95">模版语法</a></li>
-<li><a href="/rosetta/docs/api/api.html#%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BE%8B%E9%80%BB%E8%BE%91">定义实例逻辑</a></li>
-<li><a href="/rosetta/docs/api/api.html#Element%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Element生命周期</a></li>
-<li><a href="/rosetta/docs/api/api.html#%E5%AE%9A%E4%BD%8DDOM">定位DOM</a></li>
-<li><a href="/rosetta/docs/api/api.html#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A">事件绑定</a></li>
-<li><a href="/rosetta/docs/api/api.html#%E5%AE%9E%E4%BE%8B%E5%8C%96Element">动态实例化Element</a></li>
-<li><a href="/rosetta/docs/api/api.html#%E6%B8%B2%E6%9F%93Element">动态渲染Element</a></li>
+<li><a href="/docs/api/api.html#Element%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE">Element的动态数据</a></li>
+<li><a href="/docs/api/api.html#%E6%A8%A1%E7%89%88%E8%AF%AD%E6%B3%95">模版语法</a></li>
+<li><a href="/docs/api/api.html#%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BE%8B%E9%80%BB%E8%BE%91">定义实例逻辑</a></li>
+<li><a href="/docs/api/api.html#Element%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Element生命周期</a></li>
+<li><a href="/docs/api/api.html#%E5%AE%9A%E4%BD%8DDOM">定位DOM</a></li>
+<li><a href="/docs/api/api.html#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A">事件绑定</a></li>
+<li><a href="/docs/api/api.html#%E5%AE%9E%E4%BE%8B%E5%8C%96Element">动态实例化Element</a></li>
+<li><a href="/docs/api/api.html#%E6%B8%B2%E6%9F%93Element">动态渲染Element</a></li>
 </ul>
 </li>
 <li><p>工作原理</p>
 <ul>
-<li><a href="/rosetta/docs/beginning/runtime.html">Runtime</a></li>
-<li><a href="/rosetta/docs/beginning/compile.html">Compile</a></li>
+<li><a href="/docs/beginning/runtime.html">Runtime</a></li>
+<li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
 </li>
-<li><p><a href="/rosetta/docs/usage.html">Rosetta1.0整合三方</a></p>
+<li><p><a href="/docs/usage.html">Rosetta1.0整合三方</a></p>
 </li>
 </ul>
 
@@ -182,7 +182,7 @@
 
 <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="/rosetta/static/js/perfect-scrollbar.min_5c71541.js"></script>
+<script src="/static/js/perfect-scrollbar.min_5c71541.js"></script>
 <script type="text/javascript">
     (function(){
         var scrollBarEnabled = false;
