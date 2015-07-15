@@ -6,7 +6,7 @@
     <meta name="description" content="Rosetta——Web Components" />
     <meta name="keywords" content="百度直达号团队,Rosetta,百度Rosetta,百度前端,WebComponents实践,组件化开发" />
     <link rel="shortcut icon" href="/static/images/favicon.ico"/>
-    <title>Rosetta : layout.html</title>
+    <title>Rosetta :  element编译</title>
     <meta name="description" content="Rosetta 面向WebComponents的组件开发方案">
     <meta name="author" content="Rosetta">
 
@@ -72,17 +72,29 @@
 <div id="main" class="fix-sidebar">
     <div class="sidebar">
     <ul>
-<li><a href="/tools/compileplugin.html">Rosetta element编译插件</a></li>
+<li>项目搭建<ul>
 <li><a href="/tools/scaffold.html">脚手架</a></li>
-<li><a href="/tools/element.html">命令生成element</a></li>
-<li><a href="/tools/postpacker.html">Rosetta项目打包插件</a></li>
+<li><a href="/tools/element.html#%E4%B8%89%E6%96%B9element%E5%AE%89%E8%A3%85">三方element安装</a></li>
+<li><a href="/tools/element.html#%E6%96%B0%E5%BB%BAelement%E5%91%BD%E4%BB%A4">新建element命令</a></li>
+<li><a href="/tools/compileplugin.html">element编译</a></li>
+<li><a href="/tools/postpacker.html">资源处理</a></li>
+</ul>
+</li>
+<li>更多尽请期待</li>
 </ul>
 
     <div class="bottom-shadow"></div>
 </div>
 
     <div class="content api with-sidebar">
-        <blockquote class="warning"><p>文档内容有误，可提 PR，文档地址: <i class="fa fa-github"></i><a href="https://github.com/jiexuangao/rosetta/tree/master/doc/tools/compileplugin.md">/doc/tools/compileplugin.md</a></p></blockquote>
+        <a name="element%E7%BC%96%E8%AF%91" class="title-anchor"></a><h3 class="" id="element编译">element编译</h3><ul>
+<li>Rosetta基于FIS3提供给开发者element解析插件</li>
+<li>该插件将例如<code>r-slider.html</code>的element编译为两个文件</li>
+<li>element的html和js部分编译后成为<code>r-slider.js</code>，css编译为<code>r-slider.css</code></li>
+<li>通过下一个Rosetta打包工具自动处理依赖的静态资源管理</li>
+</ul>
+<p>想了解更多编译相关内容，访问<a href="../docs/beginning/compile.html#parser" target="_blank">编译阶段原理</a></p>
+<blockquote class="warning"><p>文档内容有误，可提 PR，文档地址: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-org.github.io/tools/compileplugin.md">//tools/compileplugin.md</a></p></blockquote>
     </div>
 </div>
 

@@ -6,7 +6,7 @@
     <meta name="description" content="Rosetta——Web Components" />
     <meta name="keywords" content="百度直达号团队,Rosetta,百度Rosetta,百度前端,WebComponents实践,组件化开发" />
     <link rel="shortcut icon" href="/static/images/favicon.ico"/>
-    <title>Rosetta : layout.html</title>
+    <title>Rosetta :  element相关工具</title>
     <meta name="description" content="Rosetta 面向WebComponents的组件开发方案">
     <meta name="author" content="Rosetta">
 
@@ -72,17 +72,37 @@
 <div id="main" class="fix-sidebar">
     <div class="sidebar">
     <ul>
-<li><a href="/tools/compileplugin.html">Rosetta element编译插件</a></li>
+<li>项目搭建<ul>
 <li><a href="/tools/scaffold.html">脚手架</a></li>
-<li><a href="/tools/element.html">命令生成element</a></li>
-<li><a href="/tools/postpacker.html">Rosetta项目打包插件</a></li>
+<li><a href="/tools/element.html#%E4%B8%89%E6%96%B9element%E5%AE%89%E8%A3%85">三方element安装</a></li>
+<li><a href="/tools/element.html#%E6%96%B0%E5%BB%BAelement%E5%91%BD%E4%BB%A4">新建element命令</a></li>
+<li><a href="/tools/compileplugin.html">element编译</a></li>
+<li><a href="/tools/postpacker.html">资源处理</a></li>
+</ul>
+</li>
+<li>更多尽请期待</li>
 </ul>
 
     <div class="bottom-shadow"></div>
 </div>
 
     <div class="content api with-sidebar">
-        <blockquote class="warning"><p>文档内容有误，可提 PR，文档地址: <i class="fa fa-github"></i><a href="https://github.com/jiexuangao/rosetta/tree/master/doc/tools/element.md">/doc/tools/element.md</a></p></blockquote>
+        <a name="element%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7" class="title-anchor"></a><h3 class="" id="element相关工具">element相关工具</h3><p>不论是你使用我们已经提供的element，还是自己编写element，我们都为你提供了方便的工具</p>
+<a name="%E4%B8%89%E6%96%B9element%E5%AE%89%E8%A3%85" class="title-anchor"></a><h4 class="" >三方element安装</h4><p>目前使用fis3的组件系统管理组件，未来会加入更多三方组件模块管理</p>
+<p>使用组件支持两种方式：</p>
+<ul>
+<li><p>运行<code>fis3 install elementName@version</code></p>
+</li>
+<li><p>定义component.json，然后 <code>fis3 install</code>。</p>
+</li>
+<li><p>点击阅读组件平台<a href="https://github.com/fis-components/components/blob/master/install.md">使用详情</a>，进行component.json配置</p>
+</li>
+</ul>
+<a name="%E6%96%B0%E5%BB%BAelement" class="title-anchor"></a><h4 class="" >新建element</h4><p>我们用FIS3命令行的形式提供给你，快速新建element通用骨架，你只需执行如下脚本</p>
+<pre><code class="hljs lang-js">fis3 init <span class="hljs-keyword">element</span>
+</code></pre>
+<p>FIS3会提示你输入目录名和element名，依据提示输入即可</p>
+<blockquote class="warning"><p>文档内容有误，可提 PR，文档地址: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-org.github.io/tools/element.md">//tools/element.md</a></p></blockquote>
     </div>
 </div>
 
