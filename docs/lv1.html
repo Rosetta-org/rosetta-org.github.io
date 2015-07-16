@@ -109,6 +109,7 @@
 <li><a href="/docs/lv1.html#%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7">更新element的属性</a></li>
 <li><a href="/docs/lv1.html#refs%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E5%86%85%E9%83%A8DOM">refs快速访问内部DOM</a></li>
 <li><a href="/docs/lv1.html#%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8">定义容器</a></li>
+<li><a href="/docs/lv1.html#%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8element">嵌套使用element</a> </li>
 <li><a href="/docs/lv1.html#ready%E6%8E%A5%E5%8F%A3">ready接口</a></li>
 <li><a href="/docs/lv1.html#ref%E6%8E%A5%E5%8F%A3%E5%BF%AB%E9%80%9Felement%E5%AE%9E%E4%BE%8B">ref接口快速element实例</a></li>
 <li><a href="/docs/lv1.html#init%E6%8E%A5%E5%8F%A3">init接口</a></li>
@@ -499,7 +500,33 @@
     <span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
-</code></pre><a name="ready%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >ready接口</h4><ul>
+</code></pre><a name="%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8element" class="title-anchor"></a><h4 class="" >嵌套使用element</h4><p>在定义elementA的时候使用已经定义好的elementB，是这里说的&quot;嵌套使用element&quot;
+按照以下步骤嵌套使用element</p>
+<ul>
+<li>通过HTML Import引入依赖的elementB定义文件</li>
+<li>使用elementB的标签</li>
+</ul>
+<p>示例如下：</p>
+<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-a"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-b.html"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">content</span> <span class="hljs-attribute">select</span>=<span class="hljs-value">'.aaa'</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">content</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">r-b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">r-b</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+        Rosetta.register(<span class="hljs-string">'r-a'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
+            <span class="hljs-comment">//<span class="hljs-doctag"><span class="hljs-keyword">xxx</span></span>xx</span>
+        });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+<a name="ready%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >ready接口</h4><ul>
 <li>在当前页面所有的custom element实例化完毕的时候会执行Rosetta ready状态的callback</li>
 <li>Rosetta.ready接口接受function为参数作为callback</li>
 </ul>
