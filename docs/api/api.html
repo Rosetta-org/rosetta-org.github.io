@@ -131,18 +131,17 @@
 </li>
 </ul>
 <ul>
-<li><p><a href="/docs/api/api.html">API接口文档</a></p>
-<ul>
-<li><a href="/docs/api/api.html#Element%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE">Element的动态数据</a></li>
-<li><a href="/docs/api/api.html#%E6%A8%A1%E7%89%88%E8%AF%AD%E6%B3%95">模版语法</a></li>
-<li><a href="/docs/api/api.html#%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BE%8B%E9%80%BB%E8%BE%91">定义实例逻辑</a></li>
-<li><a href="/docs/api/api.html#Element%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Element生命周期</a></li>
-<li><a href="/docs/api/api.html#%E5%AE%9A%E4%BD%8DDOM">定位DOM</a></li>
-<li><a href="/docs/api/api.html#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A">事件绑定</a></li>
-<li><a href="/docs/api/api.html#%E5%AE%9E%E4%BE%8B%E5%8C%96Element">动态实例化Element</a></li>
-<li><a href="/docs/api/api.html#%E6%B8%B2%E6%9F%93Element">动态渲染Element</a></li>
+<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
+<li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
+<li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
+<li><a href="/docs/api/api.html#%E9%A1%B5%E9%9D%A2element%E5%AE%8C%E6%88%90%E6%B8%B2%E6%9F%93">页面element完成渲染</a></li>
+<li><a href="/docs/api/api.html#%E8%A7%A6%E5%8F%91%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%88%AB%E7%9A%84%E6%B8%B2%E6%9F%93">触发页面级别的渲染</a></li>
+<li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
+</ul>
+<ul>
 <li><p>工作原理</p>
 <ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
@@ -157,7 +156,56 @@
 </div>
 
     <div class="content api with-sidebar">
-        <a name="API%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3" class="title-anchor"></a><h4 class="" >API接口文档</h4><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/api/api.md">/docs/api/api.md</a></p></blockquote>
+        <a name="API%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3" class="title-anchor"></a><h4 class="" >API接口文档</h4><a name="element%E7%B1%BB%E6%B3%A8%E5%86%8C" class="title-anchor"></a><h4 class="" >element类注册</h4><blockquote>
+<p>属性</p>
+</blockquote>
+<ul>
+<li>is</li>
+<li>ready</li>
+<li>created</li>
+<li>attached</li>
+<li>dettached</li>
+<li>attributeChanged</li>
+<li>extends</li>
+<li>properties</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>ref</li>
+<li>on</li>
+<li>off</li>
+<li>destroy</li>
+</ul>
+<blockquote>
+<p>模版</p>
+</blockquote>
+<ul>
+<li>{} + js + jsx</li>
+<li>on-eventName || onEventName</li>
+</ul>
+<a name="%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B" class="title-anchor"></a><h4 class="" >创建element实例</h4><ul>
+<li>Rosetta.create</li>
+<li>Rosetta.render</li>
+<li>Rosetta.element(type, {<pre><code>                      <span class="hljs-keyword">attr</span>: <span class="hljs-keyword">attr</span>,
+                      children: children
+                  }, target, ifReplace)
+</code></pre></li>
+</ul>
+<a name="%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B" class="title-anchor"></a><h4 class="" >查找element实例</h4><ul>
+<li>Rosetta.ref</li>
+</ul>
+<a name="%E9%A1%B5%E9%9D%A2element%E5%AE%8C%E6%88%90%E6%B8%B2%E6%9F%93" class="title-anchor"></a><h4 class="" >页面element完成渲染</h4><ul>
+<li>Rosetta.ready</li>
+</ul>
+<a name="%E8%A7%A6%E5%8F%91%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%88%AB%E7%9A%84%E6%B8%B2%E6%9F%93" class="title-anchor"></a><h4 class="" >触发页面级别的渲染</h4><ul>
+<li>Rosetta.init</li>
+</ul>
+<a name="%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD" class="title-anchor"></a><h4 class="" >异步加载</h4><ul>
+<li>Rosetta.import</li>
+</ul>
+<blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/api/api.md">/docs/api/api.md</a></p></blockquote>
     </div>
 </div>
 
