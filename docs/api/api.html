@@ -172,11 +172,15 @@
 <li>extends</li>
 <li>properties</li>
 </ul>
+<p>说明
+1、properties里的项优先级高于其他this.xxx
+2、使用with
+3、模版里用属性（变量）可以省略&#39;this&#39;以及&#39;properties&#39;</p>
 <blockquote>
 <p>方法</p>
 </blockquote>
 <ul>
-<li>ref</li>
+<li>$ =&gt; 选ref属性</li>
 <li>on</li>
 <li>once</li>
 <li>off</li>
@@ -192,11 +196,7 @@
 </ul>
 <a name="%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B" class="title-anchor"></a><h4 class="" >创建element实例</h4><ul>
 <li>Rosetta.create</li>
-<li>Rosetta.render</li>
-<li>Rosetta.element(type, {<pre><code>                      <span class="hljs-keyword">attr</span>: <span class="hljs-keyword">attr</span>,
-                      children: children
-                  }, target, ifReplace)
-</code></pre></li>
+<li>Rosetta.render，参数为空的时候默认进行页面custom element的初始化</li>
 </ul>
 <a name="%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B" class="title-anchor"></a><h4 class="" >查找element实例</h4><ul>
 <li>Rosetta.ref</li>
@@ -205,10 +205,35 @@
 <li>Rosetta.ready</li>
 </ul>
 <a name="%E8%A7%A6%E5%8F%91%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%88%AB%E7%9A%84%E6%B8%B2%E6%9F%93" class="title-anchor"></a><h4 class="" >触发页面级别的渲染</h4><ul>
-<li>Rosetta.init</li>
+<li>Rosetta.init =&gt; render</li>
 </ul>
 <a name="%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD" class="title-anchor"></a><h4 class="" >异步加载</h4><ul>
 <li>Rosetta.import</li>
+</ul>
+<p>说明：</p>
+<ul>
+<li>编译生成Rosetta.config，类似于
+{
+  &#39;r-a.html&#39;: {<pre><code>  <span class="hljs-attribute">elementName</span>: <span class="hljs-string">'r-a'</span>
+  <span class="hljs-attribute">url</span>: <span class="hljs-string">'r-a_xxx.js'</span>
+  <span class="hljs-attribute">deps</span>: <span class="hljs-string">[r-b.html, r-c.html]</span>
+</code></pre>  },
+  xxx
+}</li>
+</ul>
+<p>麻烦学芝补充详细结构</p>
+<ul>
+<li><p>打包策略</p>
+<ul>
+<li>异步r-a依赖同步r-b，则r-a打包入r-b</li>
+<li>通过查config表获取类型，查是否注册过，注册过则不再异步加载</li>
+<li>异步r-a如果还依赖r-c，则走上一条策略判断是否需要异步加载</li>
+</ul>
+</li>
+<li><p>异步返回后，自动进行页面级的Rosetta.render</p>
+</li>
+<li><p>SPA情况下，用户在更新页面dom后，主动调用Rosetta.render，来进行组件渲染</p>
+</li>
 </ul>
 <blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/api/api.md">/docs/api/api.md</a></p></blockquote>
     </div>
