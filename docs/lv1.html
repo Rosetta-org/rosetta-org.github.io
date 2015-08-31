@@ -229,13 +229,18 @@
         &lt;<span class="hljs-keyword">div</span>&gt;
             我是<span class="hljs-type">DOM</span>结构示例
         &lt;/<span class="hljs-keyword">div</span>&gt;
-        &lt;span&gt;{attrs.text}&lt;/span&gt;
+        &lt;span&gt;{text}&lt;/span&gt;
         &lt;span&gt;{title}&lt;/span&gt;
     &lt;/<span class="hljs-keyword">template</span>&gt;
     &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
-        <span class="hljs-type">Rosetta</span>.register('r-slider', function(tag) {
-            <span class="hljs-keyword">var</span> title = '我是一个作用域内的变量'
-        })
+        <span class="hljs-type">Rosetta</span>({
+            <span class="hljs-keyword">is</span>: 'r-slider',
+            properties: {
+                text: 'text'
+            },
+            title: '我是一个作用域内的变量'
+        });
+
     &lt;/script&gt;
 &lt;/element&gt;
 </code></pre><blockquote>
@@ -283,9 +288,10 @@
             {title}
         <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="less">
+        <span class="hljs-tag">Rosetta</span>({
+            <span class="hljs-attribute">is</span>: <span class="hljs-string">'r-slider'</span>,
+            <span class="hljs-attribute">title</span>: <span class="hljs-string">'我是一个测试title'</span>
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
@@ -359,31 +365,17 @@
         <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicked}</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
-            <span class="hljs-keyword">var</span> clicked = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'clicked'</span>);
-            };
-
-            <span class="hljs-keyword">var</span> onAttached = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'attached'</span>);
-            };
-
-            tag.on(<span class="hljs-string">'created'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'created'</span>);
-            });
-        });
-        Rosetta({
-            <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-slider'</span>,
-            attached: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'attached'</span>);
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="css">
+        <span class="hljs-tag">Rosetta</span>(<span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">is</span>:<span class="hljs-value"> <span class="hljs-string">'r-slider'</span>,
+            attached: function () {
+                <span class="hljs-function">alert</span>(<span class="hljs-string">'attached'</span>)</span></span>;
+            }</span>,
+            <span class="hljs-rule"><span class="hljs-attribute">created</span>:<span class="hljs-value"> <span class="hljs-function">function</span>() {
+                <span class="hljs-function">alert</span>(<span class="hljs-string">'created'</span>)</span></span>;
             },
-            created: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'created'</span>);
-            },
-            clicked: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'clicked'</span>);
+            <span class="hljs-rule"><span class="hljs-attribute">clicked</span>:<span class="hljs-value"> <span class="hljs-function">function</span>() {
+                <span class="hljs-function">alert</span>(<span class="hljs-string">'clicked'</span>)</span></span>;
             }
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
