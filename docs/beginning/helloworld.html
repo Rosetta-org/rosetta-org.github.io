@@ -190,7 +190,8 @@ touch r-helloworld.html
         {attrs.hellotext}
     &lt;/<span class="hljs-keyword">template</span>&gt;
     &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
-        <span class="hljs-type">Rosetta</span>.register('r-helloworld', function() {
+        <span class="hljs-type">Rosetta</span>({
+            <span class="hljs-keyword">is</span>: 'r-helloworld'
         });
     &lt;/script&gt;
 &lt;/element&gt;

@@ -307,12 +307,12 @@
         <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicked}</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
-            <span class="hljs-keyword">var</span> clicked = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'clicked'</span>);
-            };
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="css">
+        <span class="hljs-tag">Rosetta</span>(<span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">is</span>:<span class="hljs-value"> <span class="hljs-string">'r-slider'</span>,
+            clicked: function () {
+                <span class="hljs-function">alert</span>(<span class="hljs-string">'clicked'</span>)</span></span>;
+            }</span>
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
@@ -374,6 +374,18 @@
                 alert(<span class="hljs-string">'created'</span>);
             });
         });
+        Rosetta({
+            <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-slider'</span>,
+            attached: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'attached'</span>);
+            },
+            created: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'created'</span>);
+            },
+            clicked: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                alert(<span class="hljs-string">'clicked'</span>);
+            }
+        });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
 </code></pre><a name="%E5%A3%B0%E6%98%8E%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明依赖</h4><p>Rosetta在使用custom element时，使用HTML Import声明依赖，如下示例：</p>
@@ -412,15 +424,16 @@
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-keyword">var</span> title = <span class="hljs-string">'我是一个测试title'</span>;
-
-            <span class="hljs-keyword">var</span> clicked = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                tag.update({
+        Rosetta({
+            <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-slider'</span>,
+            properties: {
+                text: <span class="hljs-string">'init'</span>
+            },
+            clicked: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">this</span>.update({
                     text: <span class="hljs-string">'clicked!'</span>
-                });
-            };
-
+                })
+            }
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
@@ -451,12 +464,13 @@
         &lt;/<span class="hljs-keyword">div</span>&gt;
     &lt;/<span class="hljs-keyword">template</span>&gt;
     &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
-        <span class="hljs-type">Rosetta</span>.register('r-slider', function(tag) {
-            tag.on('attached', function() {
-                <span class="hljs-keyword">var</span> test = tag.refs['test'];
+        <span class="hljs-type">Rosetta</span>({
+            <span class="hljs-keyword">is</span>: 'r-slider',
+            attached: function() {
+                <span class="hljs-keyword">var</span> test = this.$['test'];
                 test.innerHTML += '更新啦';
-            });
-        });
+            }
+        })
     &lt;/script&gt;
 &lt;/element&gt;
 </code></pre>
@@ -477,10 +491,10 @@
         <span class="hljs-tag">&lt;<span class="hljs-title">content</span> <span class="hljs-attribute">select</span>=<span class="hljs-value">'.aaa'</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">content</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-comment">//<span class="hljs-doctag"><span class="hljs-keyword">xxx</span></span>xx</span>
-        });
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="less">
+        <span class="hljs-tag">Rosetta</span>({
+            <span class="hljs-attribute">is</span>: <span class="hljs-string">'r-slider'</span>
+        })
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
 </code></pre>
@@ -521,9 +535,9 @@
         <span class="hljs-tag">&lt;/<span class="hljs-title">content</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">r-b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">r-b</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-a'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-comment">//<span class="hljs-doctag"><span class="hljs-keyword">xxx</span></span>xx</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="less">
+        <span class="hljs-tag">Rosetta</span>({
+            <span class="hljs-attribute">is</span>: <span class="hljs-string">'r-a'</span>
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>

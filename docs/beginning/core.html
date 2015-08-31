@@ -191,19 +191,29 @@
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="php">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            tag.attrs = {
-                <span class="hljs-keyword">list</span>: [{
-                    title: <span class="hljs-string">'111'</span>
-                    src: <span class="hljs-string">'xxx'</span>
-                }, {
-                    title: <span class="hljs-string">'222'</span>
-                    src: <span class="hljs-string">'zzz'</span>
-                }],
-                text: <span class="hljs-string">'测试'</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="typescript">
+        Rosetta({
+            is: <span class="hljs-string">'r-slider'</span>,
+            properties: {
+                list: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Array</span>,
+                    value:[
+                        {
+                            title: <span class="hljs-string">'111'</span>
+                            src: <span class="hljs-string">'xxx'</span>
+                        },
+                        {
+                            title: <span class="hljs-string">'222'</span>
+                            src: <span class="hljs-string">'zzz'</span>
+                        }
+                    ]
+                },
+                text: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">String</span>,
+                    value: <span class="hljs-string">'测试'</span>
+                }
             }
-        });
+        })
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
 </code></pre>
@@ -228,19 +238,29 @@
             {attrs.text}
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="php">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            tag.attrs = {
-                <span class="hljs-keyword">list</span>: [{
-                    title: <span class="hljs-string">'111'</span>
-                    src: <span class="hljs-string">'xxx'</span>
-                }, {
-                    title: <span class="hljs-string">'222'</span>
-                    src: <span class="hljs-string">'zzz'</span>
-                }],
-                text: <span class="hljs-string">'测试'</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="typescript">
+        Rosetta({
+            is: <span class="hljs-string">'r-slider'</span>,
+            properties: {
+                list: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Array</span>,
+                    value:[
+                        {
+                            title: <span class="hljs-string">'111'</span>
+                            src: <span class="hljs-string">'xxx'</span>
+                        },
+                        {
+                            title: <span class="hljs-string">'222'</span>
+                            src: <span class="hljs-string">'zzz'</span>
+                        }
+                    ]
+                },
+                text: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">String</span>,
+                    value: <span class="hljs-string">'测试'</span>
+                }
             }
-        });
+        })
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
 </code></pre>
@@ -256,17 +276,27 @@
         <span class="hljs-tag">&lt;<span class="hljs-title">content</span> <span class="hljs-attribute">select</span>=<span class="hljs-value">'.aaa'</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">content</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="php">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            tag.attrs = {
-                <span class="hljs-keyword">list</span>: [{
-                    title: <span class="hljs-string">'111'</span>
-                    src: <span class="hljs-string">'xxx'</span>
-                }, {
-                    title: <span class="hljs-string">'222'</span>
-                    src: <span class="hljs-string">'zzz'</span>
-                }],
-                text: <span class="hljs-string">'测试'</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="typescript">
+        Rosetta({
+            is: <span class="hljs-string">'r-slider'</span>,
+            properties: {
+                list: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Array</span>,
+                    value:[
+                        {
+                            title: <span class="hljs-string">'111'</span>
+                            src: <span class="hljs-string">'xxx'</span>
+                        },
+                        {
+                            title: <span class="hljs-string">'222'</span>
+                            src: <span class="hljs-string">'zzz'</span>
+                        }
+                    ]
+                },
+                text: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">String</span>,
+                    value: <span class="hljs-string">'测试'</span>
+                }
             }
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -303,17 +333,27 @@
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="php">
-        Rosetta.register(<span class="hljs-string">'r-slider'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            tag.attrs = {
-                <span class="hljs-keyword">list</span>: [{
-                    title: <span class="hljs-string">'111'</span>
-                    src: <span class="hljs-string">'xxx'</span>
-                }, {
-                    title: <span class="hljs-string">'222'</span>
-                    src: <span class="hljs-string">'zzz'</span>
-                }],
-                text: <span class="hljs-string">'测试'</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="typescript">
+        Rosetta({
+            is: <span class="hljs-string">'r-slider'</span>,
+            properties: {
+                list: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Array</span>,
+                    value:[
+                        {
+                            title: <span class="hljs-string">'111'</span>
+                            src: <span class="hljs-string">'xxx'</span>
+                        },
+                        {
+                            title: <span class="hljs-string">'222'</span>
+                            src: <span class="hljs-string">'zzz'</span>
+                        }
+                    ]
+                },
+                text: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">String</span>,
+                    value: <span class="hljs-string">'测试'</span>
+                }
             }
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -341,32 +381,34 @@
             测试点击
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-button'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-keyword">var</span> clicktest = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'clicked'</span>);
-            };
-        });
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="css">
+        <span class="hljs-tag">Rosetta</span>(<span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">is</span>:<span class="hljs-value"> <span class="hljs-string">'r-button'</span>,
+            clicktest: <span class="hljs-function">function</span>() {
+                <span class="hljs-function">alert</span>(<span class="hljs-string">'clicked'</span>)</span></span>;
+            }</span>
+        })
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
 </code></pre><ul>
 <li>组件支持声明式的事件绑定</li>
 </ul>
-<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-button"</span> <span class="hljs-attribute">onAttached</span>=<span class="hljs-value">{update}</span>&gt;</span>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-button"</span> <span class="hljs-attribute">onAttached</span>=<span class="hljs-value">{attachcb}</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-button'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            <span class="hljs-keyword">var</span> update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                alert(<span class="hljs-string">'attached'</span>);
-            };
-        });
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="css">
+        <span class="hljs-tag">Rosetta</span>(<span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">is</span>:<span class="hljs-value"> <span class="hljs-string">'r-button'</span>,
+            attachcb: <span class="hljs-function">function</span>() {
+                <span class="hljs-function">alert</span>(<span class="hljs-string">'clicked'</span>)</span></span>;
+            }</span>
+        })
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
-</code></pre><a name="%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0" class="title-anchor"></a><h4 class="" >数据更新</h4><p>通过element实例的update接口，进行数据更新，比如在组件渲染完毕的时候进行数据更新</p>
-<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-button"</span> <span class="hljs-attribute">onAttached</span>=<span class="hljs-value">{update}</span>&gt;</span>
+</code></pre><a name="%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0" class="title-anchor"></a><h4 class="" >数据更新</h4><p>通过element实例的attachcb接口，进行数据更新，比如在组件渲染完毕的时候进行数据更新</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-button"</span> <span class="hljs-attribute">onAttached</span>=<span class="hljs-value">{attachcb}</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
@@ -375,14 +417,14 @@
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
-        Rosetta.register(<span class="hljs-string">'r-button'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag)</span> </span>{
-            tag.attrs = {
+        Rosetta({
+            <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-button'</span>,
+            properties: {
                 text: <span class="hljs-string">'测试'</span>
-            };
-
-            <span class="hljs-keyword">var</span> update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-                tag.attrs.text = <span class="hljs-string">'after render'</span>;
-            };
+            }
+            attachcb: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">this</span>.text = <span class="hljs-string">'after render'</span>;
+            }
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
