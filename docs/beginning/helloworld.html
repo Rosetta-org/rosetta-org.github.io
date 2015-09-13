@@ -56,9 +56,10 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/Rosetta-org/rosetta-demo" class="nav-link">Demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
+                <a href="/showcase.html" class="nav-link">MasteringWebComponents</a>
             </div>
             <div class="nav-right">
                 <!-- <a href="#" class="nav-link lang">中文</a> -->
@@ -224,6 +225,7 @@ touch r-helloworld.html
 </code></pre>
 <a name="%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%B0%E5%BB%BAFIS3%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%3Ccode%3Ejs%20fis-conf.js%3C/code%3E%EF%BC%8C%E5%86%85%E5%AE%B9%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B" class="title-anchor"></a><h4 class="" >根目录下新建FIS3的配置文件，<code>js fis-conf.js</code>，内容示例如下</h4><pre><code class="hljs lang-js">
 fis
+    <span class="hljs-comment">// 用rosetta的parser插件进行element定义文件解析、使用处的import语法解析</span>
     <span class="hljs-built_in">.</span><span class="hljs-keyword">match</span>(<span class="hljs-string">'*.{html,tpl}'</span>, {
         parser: fis<span class="hljs-built_in">.</span>plugin(<span class="hljs-string">'rosetta'</span>, {
             compileUsage: <span class="hljs-literal">false</span>

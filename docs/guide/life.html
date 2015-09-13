@@ -6,7 +6,7 @@
     <meta name="description" content="Rosetta——Web Components" />
     <meta name="keywords" content="百度直达号团队,Rosetta,百度Rosetta,百度前端,WebComponents实践,组件化开发" />
     <link rel="shortcut icon" href="/static/images/favicon.ico"/>
-    <title>Rosetta :  类注册和生命周期</title>
+    <title>Rosetta :  自定义组件的注册和生命周期定义</title>
     <meta name="description" content="Rosetta 面向WebComponents的组件开发方案">
     <meta name="author" content="Rosetta">
 
@@ -56,9 +56,10 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/Rosetta-org/rosetta-demo" class="nav-link">Demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
+                <a href="/showcase.html" class="nav-link">MasteringWebComponents</a>
             </div>
             <div class="nav-right">
                 <!-- <a href="#" class="nav-link lang">中文</a> -->
@@ -159,7 +160,50 @@
 </div>
 
     <div class="content api with-sidebar">
-        <a name="%E7%B1%BB%E6%B3%A8%E5%86%8C%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" class="title-anchor"></a><h3 class="" id="类注册和生命周期">类注册和生命周期</h3><a name="%E6%B3%A8%E5%86%8Celement" class="title-anchor"></a><h4 class="" >注册element</h4><a name="%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" class="title-anchor"></a><h4 class="" >生命周期</h4><a name="host%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >host的理解和使用</h4><a name="%E5%A3%B0%E6%98%8E%E5%A4%96%E9%93%BEJS%E7%9A%84%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明外链JS的依赖</h4><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/life.md">/docs/guide/life.md</a></p></blockquote>
+        <a name="%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%AE%9A%E4%B9%89" class="title-anchor"></a><h3 class="" id="自定义组件的注册和生命周期定义">自定义组件的注册和生命周期定义</h3><p>这一节介绍了如何注册一个自定义组件，每个组件生命周期是怎么样的</p>
+<a name="%E6%B3%A8%E5%86%8Celement" class="title-anchor"></a><h4 class="" >注册element</h4><p>创建一个element前，确保已经为Rosetta注册了这个类型的element。
+可以为element类设置以下内容：</p>
+<ul>
+<li>element类型名</li>
+<li>properties，对应于初始化数据传入方式的attributes</li>
+<li>生命周期相关的接口：created、ready、attached、attributechanged、destroyed</li>
+<li>其他属性、接口等</li>
+</ul>
+<p>注册接口如下：</p>
+<pre><code class="hljs lang-js">Rosetta({
+    is: <span class="hljs-string">'r-newelement'</span>, <span class="hljs-comment">// 注册接口唯一必填项</span>
+    properties: {
+        aaa: { <span class="hljs-comment">// 设置默认值</span>
+            type: <span class="hljs-built_in">Array</span>,
+            value: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>]
+        },
+        bbb: <span class="hljs-built_in">Number</span> <span class="hljs-comment">//不设置默认值的简约写法</span>
+    },
+    foo: <span class="hljs-string">'dsd'</span>,
+    po: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">xxx</span></span></span>
+    }
+});
+</code></pre>
+<a name="%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" class="title-anchor"></a><h4 class="" >生命周期</h4><p>组件化和模块化是常常提到的用于优化代码组织形式的方式，但是有时候大家会模糊这两者的差别。模块化更偏向一种物理的组织；而组件化则需要能满足功能明确、接口清晰、从创建到销毁完整进化能力。
+因此生命周期是组件化的一大特征，webcomponents标准定义了四个阶段，Rosetta为了更方便使用，在实现标准定义的基础上扩展了生命周期</p>
+<ul>
+<li>created</li>
+<li>ready</li>
+<li>attached</li>
+<li>attributechanged</li>
+<li>destroyed</li>
+</ul>
+<a name="host%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >host的理解和使用</h4><p>:host是为在css设置shadow root的样式，编译阶段会处理为此element类型的class</p>
+<a name="%E5%A3%B0%E6%98%8EJS%E7%9A%84%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明JS的依赖</h4><p>在<element></element>中使用<script type="text/javascript" src="xxx.js"></script>引入其他JS依赖</p>
+<a name="%E5%A3%B0%E6%98%8E%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明三方组件依赖</h4><p>在<template></template>中使用，<link rel="import" type="text/html" href="r-aaa.html">，来表示当前组件依赖的其他自定义组件</p>
+<pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
+    &lt;link rel=<span class="hljs-string">"import"</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/html"</span> href=<span class="hljs-string">"r-aaa.html"</span>&gt;
+    &lt;r-aaa&gt;
+        这是一个组件定义时使用其他自定义组件的例子
+    &lt;/r-aaa&gt;
+&lt;/<span class="hljs-keyword">template</span>&gt;
+</code></pre><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/life.md">/docs/guide/life.md</a></p></blockquote>
     </div>
 </div>
 

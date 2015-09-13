@@ -56,9 +56,10 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/Rosetta-org/rosetta-demo" class="nav-link">Demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
+                <a href="/showcase.html" class="nav-link">MasteringWebComponents</a>
             </div>
             <div class="nav-right">
                 <!-- <a href="#" class="nav-link lang">中文</a> -->
@@ -168,11 +169,17 @@
 
     &lt;/style&gt;
     &lt;<span class="hljs-keyword">template</span>&gt;
-        {attrs.hellotext}
+        {hellotext}
     &lt;/<span class="hljs-keyword">template</span>&gt;
     &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
         <span class="hljs-type">Rosetta</span>({
-            <span class="hljs-keyword">is</span>: 'r-helloworld'
+            <span class="hljs-keyword">is</span>: 'r-helloworld',
+            properties: {
+                hellotext: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-type">String</span>,
+                    value: 'ssds'
+                }
+            }
         });
     &lt;/script&gt;
 &lt;/element&gt;
