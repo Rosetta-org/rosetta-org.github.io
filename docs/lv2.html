@@ -152,7 +152,12 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/usage.html">Rosetta1.0整合三方</a></li>
+<li><a href="/docs/use/usage.html">Rosetta1.0整合三方</a><ul>
+<li><a href="/docs/use/redux.html">use-redux</a></li>
+<li><a href="/docs/use/smarty.html">use-smarty</a></li>
+<li><a href="/docs/use/laravel.html">use-laravel</a></li>
+</ul>
+</li>
 </ul>
 
     <div class="bottom-shadow"></div>
@@ -184,7 +189,12 @@
 </ul>
 </li>
 </ul>
-<a name="%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%B3%A8%E5%86%8Celement" class="title-anchor"></a><h4 class="" >异步加载注册element</h4><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/lv2.md">/docs/lv2.md</a></p></blockquote>
+<a name="%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%B3%A8%E5%86%8Celement" class="title-anchor"></a><h4 class="" >异步加载注册element</h4><p>Rosetta支持异步加载组件文件（注册），使用方式如下</p>
+<pre><code>    Rosetta.<span class="hljs-keyword">import</span>([<span class="hljs-string">'/element/r-aa.html'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// you can do something here</span>
+    })
+</code></pre><p>使用import，编译的时候rosetta-preprocessor-import插件会解析生成Rosetta异步加载的resourceMap，runtime执行import的时候Rosetta会自动进行依赖加载。</p>
+<blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/lv2.md">/docs/lv2.md</a></p></blockquote>
     </div>
 </div>
 

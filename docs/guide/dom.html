@@ -152,14 +152,74 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/usage.html">Rosetta1.0整合三方</a></li>
+<li><a href="/docs/use/usage.html">Rosetta1.0整合三方</a><ul>
+<li><a href="/docs/use/redux.html">use-redux</a></li>
+<li><a href="/docs/use/smarty.html">use-smarty</a></li>
+<li><a href="/docs/use/laravel.html">use-laravel</a></li>
+</ul>
+</li>
 </ul>
 
     <div class="bottom-shadow"></div>
 </div>
 
     <div class="content api with-sidebar">
-        <a name="DOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h3 class="" id="DOM结构">DOM结构</h3><a name="%E6%95%B0%E6%8D%AE%E5%92%8CDOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h4 class="" >数据和DOM结构</h4><a name="%E6%9F%A5%E6%89%BEDOM%E7%9A%84%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >查找DOM的接口</h4><a name="%E5%AE%B9%E5%99%A8DOM%E7%9A%84%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >容器DOM的使用</h4><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/dom.md">/docs/guide/dom.md</a></p></blockquote>
+        <a name="DOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h3 class="" id="DOM结构">DOM结构</h3><p>模板语法以<code>{}</code>包裹jsx形式作为模板语法，以下是关于模板的几个方面</p>
+<a name="%E6%95%B0%E6%8D%AE%E5%92%8CDOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h4 class="" >数据和DOM结构</h4><pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
+    {title}
+&lt;/<span class="hljs-keyword">template</span>&gt;
+</code></pre><a name="%E6%9F%A5%E6%89%BEDOM" class="title-anchor"></a><h4 class="" >查找DOM</h4><pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>&gt;
+        <span class="hljs-keyword">ref</span>的测试
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/<span class="hljs-keyword">template</span>&gt;
+&lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
+    <span class="hljs-type">Rosetta</span>({
+        <span class="hljs-keyword">is</span>: 'r-test',
+        attached: function() {
+            this.$.aaa // 访问属性为<span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>的dom元素
+        }
+    })
+&lt;/script&gt;
+</code></pre><p>在定义组件的模板内，设置DOM的attribute的ref值，通过$可以访问</p>
+<a name="%E5%AE%B9%E5%99%A8DOM%E7%9A%84%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >容器DOM的使用</h4><p>使用<content></content>挖一个容器的坑，使用attribute为select设置能通过此容器过滤的选择器</p>
+<pre><code>&lt;element name=<span class="hljs-string">"r-test"</span>&gt;
+    &lt;style&gt;
+        :host {
+
+        }
+    &lt;/style&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span> <span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>&gt;
+            <span class="hljs-keyword">ref</span>的测试
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+        &lt;content select=<span class="hljs-string">".test"</span>&gt;
+        &lt;/content&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+    &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
+        <span class="hljs-type">Rosetta</span>({
+            <span class="hljs-keyword">is</span>: 'r-test',
+            attached: function() {
+                this.$.aaa // 访问属性为<span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>的dom元素
+            }
+        })
+    &lt;/script&gt;
+&lt;/element&gt;
+
+&lt;!<span class="hljs-type">DOCTYPE</span> html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;link rel=<span class="hljs-string">"import"</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/html"</span> href=<span class="hljs-string">"r-test.html"</span>&gt;
+    &lt;r-test&gt;
+        &lt;<span class="hljs-keyword">div</span> class=<span class="hljs-string">"test"</span>&gt;
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/r-test&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/dom.md">/docs/guide/dom.md</a></p></blockquote>
     </div>
 </div>
 
