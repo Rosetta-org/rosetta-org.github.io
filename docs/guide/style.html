@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -164,7 +166,96 @@
 </div>
 
     <div class="content api with-sidebar">
-        <a name="%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%A6%86%E7%9B%96" class="title-anchor"></a><h3 class="" id="默认样式和覆盖">默认样式和覆盖</h3><a name="%E8%AE%BE%E7%BD%AEhost%E7%9A%84CSS" class="title-anchor"></a><h4 class="" >设置host的CSS</h4><a name="%E8%AE%BE%E7%BD%AE%E5%AE%B9%E5%99%A8DOM%E7%9A%84CSS" class="title-anchor"></a><h4 class="" >设置容器DOM的CSS</h4><a name="%E5%A3%B0%E6%98%8ECSS%E5%A4%96%E9%93%BE%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明CSS外链依赖</h4><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/style.md">/docs/guide/style.md</a></p></blockquote>
+        <a name="%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%A6%86%E7%9B%96" class="title-anchor"></a><h3 class="" id="默认样式和覆盖">默认样式和覆盖</h3><p>Rosetta不为组件提供css的shadow功能</p>
+<a name="%E8%AE%BE%E7%BD%AEhost%E7%9A%84CSS" class="title-anchor"></a><h4 class="" >设置host的CSS</h4><ul>
+<li>使用伪类选择器:host作为根节点的选择器</li>
+<li>支持less、sass这类预处理程序</li>
+</ul>
+<pre><code>&lt;element name=<span class="hljs-string">"r-slider"</span>&gt;
+    &lt;style&gt;
+        :host <span class="hljs-keyword">div</span> {
+            color: red;
+        }
+    &lt;/style&gt;
+    &lt;<span class="hljs-keyword">template</span>&gt;
+        &lt;<span class="hljs-keyword">div</span>&gt;
+            {attrs.text}
+        &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+    &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
+        <span class="hljs-type">Rosetta</span>({
+            <span class="hljs-keyword">is</span>: 'r-slider',
+            properties: {
+                text: {
+                    <span class="hljs-keyword">type</span>: <span class="hljs-type">String</span>,
+                    value: '测试'
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/element&gt;
+</code></pre><a name="%E5%A3%B0%E6%98%8ECSS%E5%A4%96%E9%93%BE%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明CSS外链依赖</h4><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-a"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-tag">div</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"a.css"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            {text}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="ceylon">
+        Rosetta({
+            <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-a'</span>,
+            properties: {
+                text: {
+                    type: String,
+                    <span class="hljs-keyword">value</span>: <span class="hljs-string">'测试'</span>
+                }
+            }
+        })
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre><a name="css%E9%A2%84%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F" class="title-anchor"></a><h4 class="" >css预处理程序</h4><ul>
+<li>支持预处理程序</li>
+<li>style上需要标识出所用的预处理程序，<code>type=&quot;text/x-less&quot;</code>或者<code>type=&quot;text/x-sass&quot;</code></li>
+</ul>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-a"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/x-less"</span>&gt;</span><span class="css">
+        <span class="hljs-pseudo">:host</span> <span class="hljs-rules">{
+            div {
+                <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> green</span></span>;
+
+                span {
+                    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red</span></span>;
+                }</span>
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"a.css"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            测试一下
+            <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>
+                {text}
+            <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="ceylon">
+        Rosetta({
+            <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-a'</span>,
+            properties: {
+                text: {
+                    type: String,
+                    <span class="hljs-keyword">value</span>: <span class="hljs-string">'测试'</span>
+                }
+            }
+        })
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/style.md">/docs/guide/style.md</a></p></blockquote>
     </div>
 </div>
 

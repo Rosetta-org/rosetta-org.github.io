@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -164,7 +166,101 @@
 </div>
 
     <div class="content api with-sidebar">
-        <a name="%E4%BA%8B%E4%BB%B6" class="title-anchor"></a><h3 class="" id="事件">事件</h3><a name="%E4%B8%BA%E5%86%85%E9%83%A8DOM%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6" class="title-anchor"></a><h4 class="" >为内部DOM绑定事件</h4><a name="%E4%B8%BAhost%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6" class="title-anchor"></a><h4 class="" >为host绑定事件</h4><a name="%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >自定义事件的使用</h4><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/events.md">/docs/guide/events.md</a></p></blockquote>
+        <a name="%E4%BA%8B%E4%BB%B6" class="title-anchor"></a><h3 class="" id="事件">事件</h3><a name="%E4%B8%BA%E5%86%85%E9%83%A8DOM%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6" class="title-anchor"></a><h4 class="" >为内部DOM绑定事件</h4><ul>
+<li>可以以attribute的形式，使用内置接口，为内部的dom绑定事件</li>
+<li>可以自行使用你喜欢的方式绑定事件</li>
+<li>使用attribute形式绑定事件，比如onClick={callback}，以驼峰格式进行声明</li>
+</ul>
+<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-example"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicktest}</span>&gt;</span>
+            {text}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="css">
+        <span class="hljs-tag">Rosetta</span>(<span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">is</span>:<span class="hljs-value"> <span class="hljs-string">'r-example'</span>,
+            properties: {
+                list: {
+                    type: Array,
+                    value:[
+                        {
+                            title: <span class="hljs-string">'111'</span>
+                            src: <span class="hljs-string">'xxx'</span>
+                        },
+                        {
+                            title: <span class="hljs-string">'222'</span>
+                            src: <span class="hljs-string">'zzz'</span>
+                        }
+                    ]
+                },
+                text: {
+                    type: String,
+                    value: <span class="hljs-string">'测试'</span>
+                }
+            },
+
+            clicktest: <span class="hljs-function">function</span>() {
+                console.<span class="hljs-function">log</span>(<span class="hljs-string">'click test'</span>)</span></span>;
+            }</span>
+        })
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+<a name="%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%88%E7%9B%AE%E5%89%8D%E5%8F%AA%E5%8C%85%E5%90%AB%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%EF%BC%89" class="title-anchor"></a><h4 class="" >目前支持的事件（目前只包含原生事件）</h4><ul>
+<li>onClick</li>
+<li>onDoubleClick</li>
+<li>onDrag</li>
+<li>onDragEnd</li>
+<li>onDragEnter</li>
+<li>onDragExit</li>
+<li>onDragLeave</li>
+<li>onDragOver</li>
+<li>onDragStart</li>
+<li>onDrop</li>
+<li>onMouseDown</li>
+<li>onMouseEnter</li>
+<li>onMouseLeave</li>
+<li>onMouseMove</li>
+<li>onMouseOut</li>
+<li>onMouseOver</li>
+<li>onMouseUp</li>
+</ul>
+<ul>
+<li>onTouchStart</li>
+<li>onTouchEnd</li>
+<li>onTouchCancel</li>
+<li>onTouchMove</li>
+</ul>
+<ul>
+<li>onScroll</li>
+<li>onWheel</li>
+</ul>
+<ul>
+<li>onCopy</li>
+<li>onCut</li>
+<li>onPaste</li>
+</ul>
+<ul>
+<li>onKeyDown</li>
+<li>onKeyPress</li>
+<li>onKeyUp</li>
+</ul>
+<ul>
+<li>onFocus</li>
+<li>onBlur</li>
+</ul>
+<ul>
+<li>onChange</li>
+<li>onInput</li>
+<li>onSubmit</li>
+</ul>
+<a name="%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >自定义事件的使用</h4><ul>
+<li>除上述事件意外</li>
+</ul>
+<blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/events.md">/docs/guide/events.md</a></p></blockquote>
     </div>
 </div>
 

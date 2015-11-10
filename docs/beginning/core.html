@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -176,6 +178,7 @@
 <li><a href="/docs/beginning/core.html#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A">事件绑定</a></li>
 <li><a href="/docs/beginning/core.html#%E5%B1%9E%E6%80%A7%E5%A3%B0%E6%98%8E">属性声明</a></li>
 <li><a href="/docs/beginning/core.html#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0">数据更新</a></li>
+<li><a href="/docs/beginning/core.html#%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97">组件嵌套</a></li>
 </ul>
 <p>这里你可以看到每个核心功能的例子</p>
 <a name="%E5%BC%95%E7%94%A8%E7%BB%84%E4%BB%B6" class="title-anchor"></a><h4 class="" >引用组件</h4><ul>
@@ -439,6 +442,51 @@
         });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre><a name="%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97" class="title-anchor"></a><h4 class="" >组件嵌套</h4><p>Rosetta支持自定义组件的嵌套，使用方式和普通标签一样，组件嵌套有两种情况，一类是定义嵌套，第二类是使用时嵌套</p>
+<ul>
+<li>组件r-a定义时在r-a.html中使用了组件r-b，注意需要先声明依赖关系<code>&lt;link rel=&quot;import&quot; type=&quot;text/html&quot; href=&quot;r-b.html&quot;&gt;</code>再使用，否则r-b没加载加载，无法使用</li>
+</ul>
+<pre><code>    <span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-a"</span> <span class="hljs-attribute">onAttached</span>=<span class="hljs-value">{attachcb}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"r-b.html"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">r-b</span>&gt;</span>
+                我是被嵌套的组件
+            <span class="hljs-tag">&lt;/<span class="hljs-title">r-b</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+                {text}
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
+            Rosetta({
+                <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-a'</span>,
+                properties: {
+                    text: <span class="hljs-string">'测试'</span>
+                }
+                attachcb: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">this</span>.text = <span class="hljs-string">'after render'</span>;
+                }
+            });
+        </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre><ul>
+<li>写页面结构的时候r-b是r-a的子节点</li>
+</ul>
+<pre><code>    <span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>测试嵌套<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">r-b</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">r-a</span>&gt;</span>
+                我是被嵌套的组件
+            <span class="hljs-tag">&lt;/<span class="hljs-title">r-a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">r-b</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/beginning/core.md">/docs/beginning/core.md</a></p></blockquote>
     </div>
 </div>

@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -165,9 +167,31 @@
 
     <div class="content api with-sidebar">
         <a name="DOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h3 class="" id="DOM结构">DOM结构</h3><p>模板语法以<code>{}</code>包裹jsx形式作为模板语法，以下是关于模板的几个方面</p>
-<a name="%E6%95%B0%E6%8D%AE%E5%92%8CDOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h4 class="" >数据和DOM结构</h4><pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
-    {title}
-&lt;/<span class="hljs-keyword">template</span>&gt;
+<a name="%E6%95%B0%E6%8D%AE%E5%92%8CDOM%E7%BB%93%E6%9E%84" class="title-anchor"></a><h4 class="" >数据和DOM结构</h4><ul>
+<li>简单的&#39;title&#39;变量<pre><code>  &lt;<span class="hljs-keyword">template</span>&gt;
+      {title}
+  &lt;/<span class="hljs-keyword">template</span>&gt;
+</code></pre></li>
+<li>复杂的模板拼接，用闭包包裹内部结构</li>
+</ul>
+<pre><code>    &lt;<span class="hljs-keyword">template</span>&gt;
+        {
+            (function() {
+                <span class="hljs-keyword">return</span> (
+                    &lt;<span class="hljs-keyword">div</span>&gt;
+                        &lt;span&gt;{title}&lt;/span&gt;
+                    &lt;/<span class="hljs-keyword">div</span>&gt;
+                )
+            })
+        }
+    &lt;/<span class="hljs-keyword">template</span>&gt;
+</code></pre><pre><code>    &lt;<span class="hljs-keyword">template</span>&gt;
+        {
+            [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(function(item, index) {
+                <span class="hljs-keyword">return</span> (&lt;<span class="hljs-keyword">div</span>&gt;{item}&lt;/<span class="hljs-keyword">div</span>&gt;)
+            })
+        }
+    &lt;/<span class="hljs-keyword">template</span>&gt;
 </code></pre><a name="%E6%9F%A5%E6%89%BEDOM" class="title-anchor"></a><h4 class="" >查找DOM</h4><pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
     &lt;<span class="hljs-keyword">div</span> <span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>&gt;
         <span class="hljs-keyword">ref</span>的测试
@@ -177,7 +201,7 @@
     <span class="hljs-type">Rosetta</span>({
         <span class="hljs-keyword">is</span>: 'r-test',
         attached: function() {
-            this.$.aaa // 访问属性为<span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>的dom元素
+            this.$.aaa // 访问属性为<span class="hljs-keyword">ref</span>=<span class="hljs-string">"aaa"</span>的dom元素，或者 this.$['aaa']
         }
     })
 &lt;/script&gt;

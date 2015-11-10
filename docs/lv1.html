@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -542,6 +544,7 @@
 <a name="ready%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >ready接口</h4><ul>
 <li>在当前页面所有的custom element实例化完毕的时候会执行Rosetta ready状态的callback</li>
 <li>Rosetta.ready接口接受function为参数作为callback</li>
+<li>Rosetta.render()会主动触发element渲染，从而触发Rosetta.ready的callback的执行</li>
 </ul>
 <pre><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>

@@ -53,10 +53,11 @@
         </div>
         <nav>
             <div class="nav-left">
-                <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
+                <a href="/docs/beginning/intro.html" class="nav-link  ">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -72,94 +73,18 @@
 <div id="main" class="fix-sidebar">
     <div class="sidebar">
     <ul>
-<li><a href="/docs/beginning/intro.html">介绍</a><ul>
-<li><a href="/docs/beginning/install.html">安装依赖</a></li>
-<li><a href="/docs/beginning/getRosetta.html">获取Rosetta</a></li>
+<li>基于Rosetta开发Android应用<ul>
+<li><a href="/native/intro.html">入门</a></li>
+<li><a href="/native/key.html">注意事项</a></li>
 </ul>
 </li>
-</ul>
-<ul>
-<li>快速开始<ul>
-<li><a href="/docs/beginning/helloworld.html">手把手教你写一个helloworld</a></li>
-<li><a href="/docs/beginning/core.html">一分钟功能概览</a></li>
-<li><a href="/docs/beginning/elements.html">组件生态</a></li>
-<li><a href="/docs/beginning/scaffold.html">脚手架</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="/docs/guide/guide.html">特征和开发指南</a><ul>
-<li><a href="/docs/guide/life.html">注册和生命周期</a></li>
-<li><a href="/docs/guide/property.html">property数据接口</a></li>
-<li><a href="/docs/guide/dom.html">DOM结构</a></li>
-<li><a href="/docs/guide/style.html">样式</a></li>
-<li><a href="/docs/guide/events.html">事件</a></li>
-<li><a href="/docs/guide/data.html">数据更新</a></li>
-<li><a href="/docs/guide/function.html">功能函数</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="/docs/lv1.html">入门示例</a><ul>
-<li><a href="/docs/lv1.html#%E5%AE%9A%E4%B9%89element">定义element</a></li>
-<li><a href="/docs/lv1.html#%E5%A2%9E%E5%8A%A0html%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%B1%9E%E6%80%A7">增加html、变量、属性</a></li>
-<li><a href="/docs/lv1.html#%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F">设置样式</a></li>
-<li><a href="/docs/lv1.html#%E6%B3%A8%E5%86%8Celement%E5%AE%9A%E4%B9%89%E9%80%BB%E8%BE%91">注册element定义逻辑</a></li>
-<li><a href="/docs/lv1.html#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6">绑定事件</a></li>
-<li><a href="/docs/lv1.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">生命周期</a></li>
-<li><a href="/docs/lv1.html#%E5%A3%B0%E6%98%8E%E4%BE%9D%E8%B5%96">声明依赖</a></li>
-<li><a href="/docs/lv1.html#%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7">更新element的属性</a></li>
-<li><a href="/docs/lv1.html#refs%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E5%86%85%E9%83%A8DOM">refs快速访问内部DOM</a></li>
-<li><a href="/docs/lv1.html#%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8">定义容器</a></li>
-<li><a href="/docs/lv1.html#%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8element">嵌套使用element</a> </li>
-<li><a href="/docs/lv1.html#ready%E6%8E%A5%E5%8F%A3">ready接口</a></li>
-<li><a href="/docs/lv1.html#ref%E6%8E%A5%E5%8F%A3%E5%BF%AB%E9%80%9Felement%E5%AE%9E%E4%BE%8B">ref接口快速element实例</a></li>
-<li><a href="/docs/lv1.html#init%E6%8E%A5%E5%8F%A3">init接口</a></li>
-<li><a href="/docs/lv1.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84Element%E9%A2%84%E5%A4%84%E7%90%86">基于FIS3的预处理</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="/docs/lv2.html">高级示例</a><ul>
-<li><a href="/docs/lv2.html#%E5%8A%A8%E6%80%81%E5%AE%9E%E4%BE%8B%E5%8C%96">动态实例化element</a></li>
-<li><a href="/docs/lv2.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%B3%A8%E5%86%8Celement">异步加载注册element</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="/docs/lv3.html">项目解决方案</a><ul>
-<li><a href="/docs/lv3.html#%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91">组件化开发</a></li>
-<li><a href="/docs/lv3.html#%E5%9F%BA%E4%BA%8EFis3%E7%9A%84%E6%9E%84%E5%BB%BA">基于FIS3的项目构建</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
-<li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
-<li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
-<li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
-<li><a href="/docs/api/api.html#%E9%A1%B5%E9%9D%A2element%E5%AE%8C%E6%88%90%E6%B8%B2%E6%9F%93">页面element完成渲染</a></li>
-<li><a href="/docs/api/api.html#%E8%A7%A6%E5%8F%91%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%88%AB%E7%9A%84%E6%B8%B2%E6%9F%93">触发页面级别的渲染</a></li>
-<li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>工作原理<ul>
-<li><a href="/docs/beginning/runtime.html">Runtime</a></li>
-<li><a href="/docs/beginning/compile.html">Compile</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="/docs/usage.html">Rosetta1.0整合三方</a></li>
 </ul>
 
     <div class="bottom-shadow"></div>
 </div>
 
     <div class="content api with-sidebar">
-        <blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/usage.md">/docs/usage.md</a></p></blockquote>
+        <blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/native/key.md">/native/key.md</a></p></blockquote>
     </div>
 </div>
 

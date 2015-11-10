@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -165,20 +167,24 @@
 
     <div class="content api with-sidebar">
         <a name="%E5%8A%9F%E8%83%BD%E5%87%BD%E6%95%B0" class="title-anchor"></a><h3 class="" id="功能函数">功能函数</h3><p>Rosetta提供静态函数和element实例函数两级别接口</p>
-<a name="element%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%87%BD%E6%95%B0" class="title-anchor"></a><h4 class="" >element实例的函数</h4><ul>
-<li>this.$()</li>
-<li>this.on()</li>
-<li>this.off()</li>
-<li>this.query()</li>
-<li>this.destroy()</li>
-<li>this.update()</li>
+<a name="element%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%87%BD%E6%95%B0/%E5%AF%B9%E8%B1%A1" class="title-anchor"></a><h4 class="" >element实例的函数/对象</h4><ul>
+<li>this.$[domRef]，传入dom的attribute定义的ref值</li>
+<li>this.on(eventName)，对Rosetta组件对象进行事件绑定</li>
+<li>this.off(eventName)，对Rosetta组件对象进行事件解绑</li>
+<li>this.query(selectorName)，查询内部dom节点的接口</li>
+<li>this.destroy()，销毁本Rosetta组件对象</li>
+<li>this.update(attributeObj)，更新组件properties</li>
 </ul>
 <a name="%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0" class="title-anchor"></a><h4 class="" >静态函数</h4><ul>
-<li>Rosetta.create()</li>
-<li>Rosetta.render()</li>
-<li>Rosetta.ref()</li>
-<li>Rosetta()</li>
-<li>Rosetta.ready()</li>
+<li>Rosetta.create(type, attributes, children)。创建Rosetta对象，此函数需要和render一起使用</li>
+<li>Rosetta.render(Rosetta.create(xxx), parentDOM, ifReplaceParent),</li>
+<li>Rosetta.ref(&#39;ref name&#39;)</li>
+<li>Rosetta({<pre><code>  <span class="hljs-attribute">is</span>: <span class="hljs-string">elementName,</span>
+  <span class="hljs-attribute">properties</span>: <span class="hljs-string">{},</span>
+  <span class="hljs-attribute">attached</span>: <span class="hljs-string">function(){},</span>
+  <span class="hljs-attribute">xxx</span>
+</code></pre>  })。组件定义接口，传入的参数将成为&#39;is&#39;定义的组件名的这类组件的prototype</li>
+<li>Rosetta.ready(function)。页面上组件完全渲染完毕就执行参数传入的callback</li>
 </ul>
 <blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/function.md">/docs/guide/function.md</a></p></blockquote>
     </div>

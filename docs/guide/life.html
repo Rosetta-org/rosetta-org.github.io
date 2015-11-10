@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -192,15 +194,21 @@
 <a name="%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" class="title-anchor"></a><h4 class="" >生命周期</h4><p>组件化和模块化是常常提到的用于优化代码组织形式的方式，但是有时候大家会模糊这两者的差别。模块化更偏向一种物理的组织；而组件化则需要能满足功能明确、接口清晰、从创建到销毁完整进化能力。
 因此生命周期是组件化的一大特征，webcomponents标准定义了四个阶段，Rosetta为了更方便使用，在实现标准定义的基础上扩展了生命周期</p>
 <ul>
-<li>created</li>
-<li>ready</li>
-<li>attached</li>
-<li>attributechanged</li>
-<li>destroyed</li>
+<li>created：组件对象已经创建，有完整的接口，但是没有生成dom</li>
+<li>ready：dom已经生成，但是并未渲染到document上</li>
+<li>attached：已经渲染到document上</li>
+<li>attributechanged：属性更新了，触发条件是调用Rosetta element实例的update接口</li>
+<li>destroyed：组件销毁的接口，移除dom元素，解绑事件</li>
 </ul>
 <a name="host%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8" class="title-anchor"></a><h4 class="" >host的理解和使用</h4><p>:host是为在css设置shadow root的样式，编译阶段会处理为此element类型的class</p>
-<a name="%E5%A3%B0%E6%98%8EJS%E7%9A%84%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明JS的依赖</h4><p>在<element></element>中使用<script type="text/javascript" src="xxx.js"></script>引入其他JS依赖</p>
-<a name="%E5%A3%B0%E6%98%8E%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明三方组件依赖</h4><p>在<template></template>中使用，<link rel="import" type="text/html" href="r-aaa.html">，来表示当前组件依赖的其他自定义组件</p>
+<a name="%E5%A3%B0%E6%98%8EJS%E7%9A%84%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明JS的依赖</h4><p>在<code>&lt;element&gt;&lt;/element&gt;</code>中使用<code>&lt;script type=&quot;text/javascript&quot; src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</code>引入其他JS依赖</p>
+<pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
+    &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span> src=<span class="hljs-string">"xxx.js"</span>&gt;&lt;/script&gt;
+    &lt;r-aaa&gt;
+        这是一个组件定义时使用其他自定义组件的例子
+    &lt;/r-aaa&gt;
+&lt;/<span class="hljs-keyword">template</span>&gt;
+</code></pre><a name="%E5%A3%B0%E6%98%8E%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6%E4%BE%9D%E8%B5%96" class="title-anchor"></a><h4 class="" >声明三方组件依赖</h4><p>在<code>&lt;template&gt;&lt;/template&gt;</code>中使用，<code>&lt;link rel=&quot;import&quot; type=&quot;text/html&quot; href=&quot;r-aaa.html&quot;&gt;</code>，来表示当前组件依赖的其他自定义组件</p>
 <pre><code>&lt;<span class="hljs-keyword">template</span>&gt;
     &lt;link rel=<span class="hljs-string">"import"</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/html"</span> href=<span class="hljs-string">"r-aaa.html"</span>&gt;
     &lt;r-aaa&gt;

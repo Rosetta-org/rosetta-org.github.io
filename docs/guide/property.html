@@ -56,7 +56,8 @@
                 <a href="/docs/beginning/intro.html" class="nav-link  is-active">文档</a>
                 <a href="/tools/intro.html" class="nav-link ">工具</a>
                 <a href="/elements/intro.html" class="nav-link ">组件</a>
-                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案demo</a>
+                <a target="_blank" href="https://github.com/jiexuangao/rosetta-SPASolution" class="nav-link">解决方案</a>
+                <a href="/native/na.html" class="nav-link ">Rosetta开发Naitve</a>
                 <a href="/docs/api/api.html" class="nav-link ">API</a>
                 <a href="/showcase.html" class="nav-link">线上实例</a>
             </div>
@@ -134,7 +135,7 @@
 </li>
 </ul>
 <ul>
-<li><a href="/docs/api/api.html">API接口文档</a><ul>
+<li><a href="/docs/api/api.html">API简单接口文档</a><ul>
 <li><a href="/docs/api/api.html#element%E7%B1%BB%E6%B3%A8%E5%86%8C">element类注册</a></li>
 <li><a href="/docs/api/api.html#%E5%88%9B%E5%BB%BAelement%E5%AE%9E%E4%BE%8B">创建element实例</a></li>
 <li><a href="/docs/api/api.html#%E6%9F%A5%E6%89%BEelement%E5%AE%9E%E4%BE%8B">查找element实例</a></li>
@@ -143,9 +144,10 @@
 <li><a href="/docs/api/api.html#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD">异步加载</a></li>
 </ul>
 </li>
-</ul>
+<li><p><a href="/docs/apidoc/index.html">API详细文档</a></p>
+</li>
+<li><p>工作原理</p>
 <ul>
-<li>工作原理<ul>
 <li><a href="/docs/beginning/runtime.html">Runtime</a></li>
 <li><a href="/docs/beginning/compile.html">Compile</a></li>
 </ul>
@@ -165,12 +167,66 @@
 
     <div class="content api with-sidebar">
         <a name="%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3%E5%92%8Cproperties" class="title-anchor"></a><h3 class="" id="数据接口和properties">数据接口和properties</h3><p>封装自定义组件需要定义清晰组件的接口，包括功能接口和初始化设置。Rosetta通过properties声明</p>
-<a name="properties%E5%92%8Cattribute%E7%9A%84%E6%98%A0%E5%B0%84%E8%A7%84%E5%88%99" class="title-anchor"></a><h4 class="" >properties和attribute的映射规则</h4><a name="%E9%BB%98%E8%AE%A4properties%E5%92%8Cattribute%E5%80%BC" class="title-anchor"></a><h4 class="" >默认properties和attribute值</h4><p>通过</p>
-<pre><code>
-
-</code></pre><a name="properties%E6%9B%B4%E6%96%B0%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >properties更新接口</h4><pre><code>    <span class="hljs-tag">this</span><span class="hljs-class">.update</span>(<span class="hljs-rules">{
-
-    }</span>)
+<a name="properties%E5%92%8Cattribute%E7%9A%84%E6%98%A0%E5%B0%84%E8%A7%84%E5%88%99" class="title-anchor"></a><h4 class="" >properties和attribute的映射规则</h4><ul>
+<li>定义组件的时候声明properties属性的内容</li>
+<li>页面初始化组件生成的时候，attribute传入的在properties中定义的值是有效初始化参数，建立一对一的关系</li>
+</ul>
+<a name="%E9%BB%98%E8%AE%A4properties%E5%92%8Cattribute%E5%80%BC" class="title-anchor"></a><h4 class="" >默认properties和attribute值</h4><ul>
+<li>定义组件的时候声明properties属性的内容，如下例定义了&#39;list&#39;和&#39;text&#39;两个properties<pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+          {text}
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="typescript">
+      Rosetta({
+          is: <span class="hljs-string">'r-slider'</span>,
+          properties: {
+              list: {
+                  <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Array</span>,
+                  value:[
+                      {
+                          title: <span class="hljs-string">'111'</span>
+                          src: <span class="hljs-string">'xxx'</span>
+                      },
+                      {
+                          title: <span class="hljs-string">'222'</span>
+                          src: <span class="hljs-string">'zzz'</span>
+                      }
+                  ]
+              },
+              text: {
+                  <span class="hljs-keyword">type</span>: <span class="hljs-built_in">String</span>,
+                  value: <span class="hljs-string">'测试'</span>
+              }
+          }
+      })
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">element</span>&gt;</span>
+</code></pre>
+</li>
+<li>以标签的方式使用组件时，设置attributes作为定义时的properties的初始化值<pre><code><span class="xml">  <span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">r-slider</span> <span class="hljs-attribute">list</span>=<span class="hljs-value">"[</span></span></span><span class="hljs-expression">{'<span class="hljs-variable">title</span>': '<span class="hljs-variable">init</span>', '<span class="hljs-variable">src</span>': '<span class="hljs-variable">http</span>:/<span class="hljs-end-block">/www.baidu.com</span>'}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">]"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">r-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></span>
+</code></pre></li>
+</ul>
+<a name="properties%E6%9B%B4%E6%96%B0%E6%8E%A5%E5%8F%A3" class="title-anchor"></a><h4 class="" >properties更新接口</h4><pre><code>    <span class="hljs-tag">rosettaElementObj1</span><span class="hljs-class">.update</span>(<span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">list</span>:<span class="hljs-value"> [
+            {
+                title: <span class="hljs-string">'更新数据'</span>,
+                src: <span class="hljs-string">'http://www.baidu.com'</span>
+            }
+        ]
+    })</span></span></span>
 </code></pre><blockquote class="warning"><p>发现了问题或想要贡献？来 Github 和Rosetta联系或者Fork吧！: <i class="fa fa-github"></i><a href="https://github.com/Rosetta-org/rosetta-doc/tree/master/docs/guide/property.md">/docs/guide/property.md</a></p></blockquote>
     </div>
 </div>
