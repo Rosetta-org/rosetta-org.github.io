@@ -19,11 +19,11 @@
 
     <h1 class="page-title">Source: Rosetta.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&amp;&amp;require;if(!u&amp;&amp;a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&amp;&amp;require;for(var o=0;o&lt;r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
@@ -1194,7 +1194,7 @@ function setRef(key, value) {
         ready: function() {}
         created: function() {}
         attached: function() {}
-        dettached: function() {}
+        detached: function() {}
         attributeChanged: function() {}
         extends: 'type name'
         properties: {
@@ -1375,11 +1375,11 @@ function destroy() {
     this.root.parentElement.removeChild(this.root);
     delete Rosetta.ref(this.name);
 
-    // 触发dettached相关事件
+    // 触发detached相关事件
     (0, _elementUtilsJs.triggerChildren)(this, _lifeEventsJs.DETACHED);
     this.fire(_lifeEventsJs.DETACHED, this);
     this.isAttached = false;
-    this.dettached.call(this);
+    this.detached.call(this);
 }
 
 /**
@@ -1489,7 +1489,7 @@ function elementClassFactory(prototypeOpts) {
 
         attached: function attached() {},
 
-        dettached: function dettached() {},
+        detached: function detached() {},
 
         attributeChanged: function attributeChanged() {},
 
