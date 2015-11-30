@@ -333,14 +333,14 @@
 <ul>
 <li>created：组件创建</li>
 <li>attached：组件渲染到document里</li>
-<li>dettached：组件从document移除</li>
+<li>detached：组件从document移除</li>
 <li>attributechanged：属性更新</li>
 </ul>
 <p>element定义的时候可以绑定生命周期的事件</p>
 <ul>
 <li>onCreated</li>
 <li>onAttached</li>
-<li>onDettached</li>
+<li>onDetached</li>
 <li>onAttributeChanged</li>
 </ul>
 <p>组件初始化的生命周期顺序</p>
@@ -352,7 +352,7 @@
 </ul>
 <p>提供定义生命周期callback的两种形式</p>
 <ul>
-<li>可以通过设置DOM的attribute的形式声明对于生命周期的绑定，类似于事件绑定，区别在于以attributes声明的时候生命周期只可以生命在<code>&lt;element&gt;&lt;/element&gt;</code>的属性上</li>
+<li>可以通过设置DOM的attribute的形式声明对于生命周期的绑定，类似于事件绑定，区别在于以attributes声明的时候生命周期只可以声明在<code>&lt;element&gt;&lt;/element&gt;</code>的属性上</li>
 <li>在register的函数中定义</li>
 </ul>
 <p>示例如下，分别用两种方式声明<code>attached</code>和<code>created</code>：</p>
