@@ -210,7 +210,7 @@
 <ul>
 <li><p>html中使用数据</p>
 <ul>
-<li><p>如果element有初始化属性为text，可通过<code>{attrs.text}</code>引用，同时可以通过实例的update()函数实现数据更新和UI渲染。attrs为内置变量，在js部分会详细说明</p>
+<li><p>如果element有初始化属性为text，可通过<code>{text}</code>引用，同时可以通过实例的update()函数实现数据更新和UI渲染。attrs为内置变量，在js部分会详细说明</p>
 </li>
 <li><p>如果element的register函数中定义了变量title，可以通过<code>{title}</code>直接访问。具体变量的定义和register函数在js部分会详细说明</p>
 </li>
@@ -225,7 +225,7 @@
         &lt;<span class="hljs-keyword">div</span>&gt;
             我是<span class="hljs-type">DOM</span>结构示例
         &lt;/<span class="hljs-keyword">div</span>&gt;
-        &lt;span&gt;{attrs.text}&lt;/span&gt;
+        &lt;span&gt;{text}&lt;/span&gt;
     &lt;/<span class="hljs-keyword">template</span>&gt;
 &lt;/element&gt;
 </code></pre><ul>
@@ -402,7 +402,7 @@
 </code></pre><a name="%E6%9B%B4%E6%96%B0element%E7%9A%84%E5%B1%9E%E6%80%A7" class="title-anchor"></a><h4 class="" >更新element的属性</h4><ul>
 <li>在custom element使用的时候用attributes设置属性初始值</li>
 <li>通过element实例的update函数接口更新属性值，Rosetta自动完成UI更新</li>
-<li>内部html中通过<code>{attrs.xxx}</code>来引用对于<code>xxx</code>属性的</li>
+<li>内部html中通过<code>{xxx}</code>来引用对于<code>xxx</code>属性的</li>
 </ul>
 <p>定义element，绑定事件、实现属性更新逻辑</p>
 <pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">element</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"r-slider"</span>&gt;</span>
@@ -419,14 +419,17 @@
             {title}
         <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{clicked}</span>&gt;</span>
-            {attrs.text}
+            {text}
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="actionscript">
         Rosetta({
             <span class="hljs-keyword">is</span>: <span class="hljs-string">'r-slider'</span>,
             properties: {
-                text: <span class="hljs-string">'init'</span>
+                text: {
+                    type: String,
+                    value: <span class="hljs-string">'init'</span>
+                }
             },
             clicked: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
                 <span class="hljs-keyword">this</span>.update({

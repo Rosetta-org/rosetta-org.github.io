@@ -194,11 +194,14 @@ touch r-helloworld.html
 
     &lt;/style&gt;
     &lt;<span class="hljs-keyword">template</span>&gt;
-        {attrs.hellotext}
+        {hellotext}
     &lt;/<span class="hljs-keyword">template</span>&gt;
     &lt;script <span class="hljs-keyword">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;
         <span class="hljs-type">Rosetta</span>({
-            <span class="hljs-keyword">is</span>: 'r-helloworld'
+            <span class="hljs-keyword">is</span>: 'r-helloworld',
+            properties: {
+                hellotext: <span class="hljs-type">String</span>
+            }
         });
     &lt;/script&gt;
 &lt;/element&gt;
@@ -221,7 +224,7 @@ touch r-helloworld.html
 
             <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
                 helloworld1.update({
-                    hellotext: helloworld1.attrs.hellotext + <span class="hljs-string">' clicked'</span>
+                    hellotext: helloworld1.hellotext + <span class="hljs-string">' clicked'</span>
                 });
             }, <span class="hljs-literal">false</span>);
         });
